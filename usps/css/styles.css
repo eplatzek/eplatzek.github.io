@@ -115,3 +115,16 @@ footer {
     font-size: 12px;
     padding: 15px 0px;
 }
+
+@media (max-width:400px){
+    nav ul li {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media (max-width:500px){
+    nav ul li {
+        font-size: 13px;
+    }
+}
