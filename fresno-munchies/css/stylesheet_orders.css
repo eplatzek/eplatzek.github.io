@@ -1,0 +1,107 @@
+
+.content{
+   background-color: white;
+   float: left;
+   padding: 5px;
+}
+
+
+/* MENU ITEMS*/
+.box-holder{
+   width: 60%;
+   float: left;
+   margin-left: 35px;
+}
+.box {
+   box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+   height: 190px;
+   width: 190px;
+   float: left;
+   margin: 5px;
+   position: relative;
+   overflow: hidden;
+   background-color: white;
+}
+
+.box img {
+   position: absolute;
+   margin: 5px;
+   left: 0;
+   height: 175px;
+   width: auto;
+}
+
+.box .fade-caption {
+   position: absolute;
+   z-index: 1;
+   transition: all 300ms ease-out;
+
+   opacity: 0;
+   width: 170px;
+   height: 170px;
+   text-align: right;
+   right:0;
+   padding: 15px;
+   background-color: rgba(34,34,34,.8);
+}
+
+.box .fade-caption h3 {
+   font-family: OpenSans-Bold;
+   color:#C6D92D;
+}
+.box .fade-caption p {
+   font-family: OpenSans-Bold;
+   color:#EC008C;
+}
+
+.box:hover .fade-caption {
+   opacity: 1;
+}
+
+/* ORDER */
+.order{
+   background-color: white;
+   border: 1px solid gray;
+   box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+   float: right;
+   width: 32%;
+   padding-bottom: 25px;
+   margin-right: 15px;
+   margin-top: 5px;
+}
+
+hr {
+   width: 270px;
+   margin-top: 3px;
+   color: #222;
+   opacity: .5;
+}
+.order h1{
+   font-size: 27px;
+   font-family: OpenSans-ExtraBold;
+   text-align: center;
+   margin-top: 20px;
+   color: #EC008C;
+}
+
+.order h2{
+   font-family: OpenSans-Bold;
+   font-size: 1.3em;
+   margin: 0em;
+   margin-top: .5em;
+   color: #222;
+   margin-left: 30px;
+}
+
+.order p {
+   font-family: OpenSans-Light;
+   color: #222;
+   text-align: justify;
+   margin: 0 30px;
+}
+
+.order a {
+   text-decoration: none;
+   color: #008892;
+   font-family: OpenSans-Regular;
+}

@@ -6,6 +6,7 @@
 body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     background-color: rgb(168, 208, 255);  
 }
 
 nav {
@@ -14,13 +15,16 @@ nav {
 }
 
 nav ul li {
-    width:25%;
+    width:30%;
     display: inline-block;
-    float:left;
+    
     text-align: center;
     padding: 10px;
     font-size: 18px;
-    text-transform: uppercase
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 5px;
+    
 }
 
 nav ul li a {
@@ -30,19 +34,22 @@ nav ul li a {
 
 header{
     background-color: rgb(168, 208, 255);  
-    overflow: hidden;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    float: right;
+    text-align: center;
 }
-header img {
-    display: block;
-    width: 250px;
-    margin: 20px auto;
+header img {  
+    width: 20%;;
+    margin: 10px auto;
     background-color: white;
     padding: 10px;
-    border-radius: 5px;
-    
+    border-radius: 5px;    
 }
 
 #hero {
+    clear:both;
     height: 200px;
     background-image: url(../img/code.jpg);
     background-size: cover;
@@ -51,7 +58,6 @@ header img {
 }
 
 main {
-    background-color: #eaeaea;
 }
 article {
     width: 80%;
@@ -61,24 +67,10 @@ article {
     margin-right: 5%;
     margin-bottom: 40px;
     position: relative;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
-main img {
-    width: 30%;
-    border-radius: 50%;
-    position: absolute;
-    left: 10%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    transition: left 150ms ease-in-out,transform 300ms ease-in-out;
-    background-color: #ddd;
-}
-
-main img:hover{
-    transform: rotate(360deg);
-    left: 0%;
-    
-}
 article:before {
     content: "";
     display: block;
@@ -88,10 +80,19 @@ article:before {
     position: absolute;
     left: 0;
     top: -50px;
-    background-image: url("../img/mail.png");
-    background-repeat: repeat-x;
-    
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
+
+article object{
+    border: 1px solid black;
+}
+
+.fav-sites li {
+    margin-left: 20px;
+}
+/*
+
 article h1 {
     font-size: 28px;
     margin-bottom: 10px;
@@ -104,12 +105,17 @@ article p {
 }
 
 article h2 {
+   font-size: 20px; 
+}
+article h2:last-child {
     font-size: 20px;
     text-align: right;
     font-family: 'Gloria Hallelujah', cursive;
 }
+*/
 
 footer {
+    clear:both;
     background-color: rgb(50, 50, 50);
     color: rgb(255, 255, 255);
     font-size: 12px;
