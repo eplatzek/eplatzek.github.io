@@ -6,7 +6,7 @@
 body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: rgb(168, 208, 255);  
+     background-color: rgb(168, 208, 255);  
 }
 
 nav {
@@ -90,44 +90,6 @@ article object{
 
 .fav-sites li {
     margin-left: 20px;
-}
-
-.white-box{
-    clear:both;
-
-    background-color: rgb(255, 255, 255);
-    width: 80%;
-    padding: 10px;
-    margin-right: 10%;
-    margin-left: 10%;
-    margin-bottom: 20px;
-    float: right;
-    border-radius: 5px;
-    
-}
-.white-box p {
-    text-decoration: underline;
-}
-
-table, th, td {
-    border: 1px solid rgb(168, 208, 255);
-}
-
-table tr:first-child{
-    background-color: gray;
-}
-
-table .first-name{
-    font-family: Georgia;
-}
-
-table .last-name{
-    font-family: Serif;
-    font-variant:small-caps;
-}
-
-h3 {
-    font-family: verdana;
 }
 /*
 
