@@ -9,14 +9,16 @@
         <link rel="stylesheet" href="css/reset.css">
         <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/styles.css">
-        <?php
-if ( (date('H') > 8) && (date('H') < 17))
-echo '<link rel="stylesheet" href="css/styles_day.css">';
-?>
         <title>Resume of Eric Platzek</title>
     </head>
     <body>
-        <?php include("header.php"); ?>
+<header>
+        <div class="container">
+            <img src="img/mac.jpg" alt="Mac Computer">
+            <img src="img/aperture.png" alt="Photography">
+            <img src="img/pc.jpg" alt="PC">
+        </div>
+</header>
 
         <div id="hero"></div>
         <main class="clearfix">
@@ -30,11 +32,6 @@ echo '<link rel="stylesheet" href="css/styles_day.css">';
                             download the PDF file.</a></p>
 
                     </object>
-                    <div class="php-time">
-                        <?php
-echo 'Now:       '. date('Y-m-d H:i:s') ."\n";
-?>
-                    </div>
                     <div class="fav-sites">
                         <ul><h2>Portfolio Sites</h2>
                             <li><a href="http://ericplatzek.com/">Photography</a></li></li>
@@ -93,19 +90,6 @@ echo 'Now:       '. date('Y-m-d H:i:s') ."\n";
             <strong> MySQL Query</strong><br>
             <code>SELECT concat(first_name," ",last_name) AS Fullname, Number_of_web_qual FROM ( SELECT users.user_id, first_name,last_name, sum(case when qual_category Like "web design%" THEN 1 ELSE 0 END) AS Number_of_web_qual FROM users INNER JOIN qualifications ON users.user_id=qualifications.user_id GROUP by users.user_id) as table1 ORDER by Number_of_web_qual desc;</code>
         </div>
-
-        <div class = "white-box">
-            <?php if (!empty($_POST)): ?>
-            First Name is: <?php echo htmlspecialchars($_POST["fname"]); ?>!<br>
-            Last Name is: <?php echo htmlspecialchars($_POST["lname"]); ?>.<br>
-            <?php else: ?>
-            <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
-            Name: <input type="fname" name="fname"><br>
-            Email: <input type="lname" name="lname"><br>
-            <input type="submit">
-            </form>
-        </div>
-    <?php endif; ?>
 
     </article>
 </div>
