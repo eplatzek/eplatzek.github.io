@@ -1,0 +1,64 @@
+
+body {
+    background-color: blue;
+    display:flex;
+    flex-direction: column;
+}
+
+
+header {
+    background-color: red;
+    flex:1;
+}
+
+.headline {
+    background-color: green;
+    flex:1;
+}
+
+.centerArticleAndClass{
+    flex:1;
+    display:flex;
+    flex-direction:row;
+}
+article {
+    flex:4;
+    background-color: purple;
+}
+
+aside {
+    flex:1;
+    background-color: orange;
+}
+
+.mypromos {
+    flex: 1;
+    display:flex;
+    flex-direction:row;
+}
+.promo {
+    flex: 1;
+    height: 30px;
+    background-color: white;
+    margin: 2px;
+}
+
+footer {
+    flex: 1;
+    border: 2px solid black;
+    background-color: brown;
+    border-radius: 3px;
+}
+
+@media (max-width: 480px){
+    body {
+        background-color: yellow;
+    }
+    
+    article {
+        flex:1;
+    }
+    
+    .centerArticleAndClass, .mypromos {
+        flex-direction:row;
+    }
