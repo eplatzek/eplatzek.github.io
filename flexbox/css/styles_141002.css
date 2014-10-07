@@ -1,10 +1,12 @@
+html,body{
+    height:100%;
+}
 
 body {
     background-color: blue;
     display:flex;
     flex-direction: column;
 }
-
 
 header {
     background-color: red;
@@ -14,6 +16,37 @@ header {
 .headline {
     background-color: green;
     flex:1;
+}
+
+nav{
+    display:flex;
+    flex:1;
+}
+nav ul{
+    flex:1;
+    display:flex;
+    
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+nav li{
+    display:flex;
+    flex:1;
+    background-color: beige;
+    border: 3px solid black;
+    padding: 1%;
+    justify-content: center;
+    align-items: center;
+    align-self:flex-end;
+}
+
+nav li a{
+    display:flex;
+    flex=1;
+}
+nav li:nth-child(2){
+    align-self:stretch;
 }
 
 .centerArticleAndClass{
@@ -38,13 +71,13 @@ aside {
 }
 .promo {
     flex: 1;
-    height: 30px;
     background-color: white;
     margin: 2px;
 }
 
+
 footer {
-    flex: 1;
+    flex: .2;
     border: 2px solid black;
     background-color: brown;
     border-radius: 3px;
@@ -60,5 +93,13 @@ footer {
     }
     
     .centerArticleAndClass, .mypromos {
-        flex-direction:row;
+        flex-direction:column;
     }
+    
+    .centerArticleAndClass{
+        flex:3;
+    }
+    article{
+        flex:3.5;
+    }
+}
