@@ -1,0 +1,57 @@
+/* line 12, styles.scss */
+html {
+  height: 100%;
+}
+
+/* line 16, styles.scss */
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e8080;
+  /* end of nav*/
+}
+/* line 22, styles.scss */
+body header {
+  flex: 1;
+  color: red;
+}
+/* line 26, styles.scss */
+body nav {
+  flex: 1;
+  background-color: rgba(131, 72, 149, 0.61);
+}
+/* line 29, styles.scss */
+body nav ul {
+  background-color: #d981fa;
+  border-radius: 3px;
+}
+/* line 31, styles.scss */
+body nav ul li {
+  background-color: #cbcbcb;
+}
+/* line 37, styles.scss */
+body .centerArticleAndClass {
+  flex: 2;
+  display: flex;
+  border: 2px dashed black;
+  background-color: red;
+}
+/* line 42, styles.scss */
+body .centerArticleAndClass article {
+  background-color: #d981fa;
+  border-radius: 3px;
+  flex: 3;
+}
+/* line 47, styles.scss */
+body .centerArticleAndClass aside {
+  flex: 1;
+  background-color: #cbcbcb;
+  border-radius: 3px;
+}
+/* line 54, styles.scss */
+body .mypromos {
+  clear: both;
+}
+
+/*end of body*/

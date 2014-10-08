@@ -1,0 +1,48 @@
+$priColor: #aeaeae;
+$secColor: #01017c;
+$radiusPx: 3px;
+
+@mixin bk ($color){
+        background-color: $color;
+        border-radius: $radiusPx;
+}
+
+
+.color {
+}
+
+@extend color:
+    
+body{
+    display:$priColor;
+}
+
+header{
+    @include bk($secColor)
+}
+
+.headline {
+    @include bk($priColor)
+}
+
+nav{
+    @include bk($secColor)
+}
+
+.centerArticleAndAside{
+    article{
+        @include bk(red);
+    }
+    aside{
+        @include bk(purple);
+    }
+}
+
+.myPromos{
+    .promo{
+    }
+}
+
+footer {
+   
+}
