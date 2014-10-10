@@ -40,35 +40,48 @@ footer {
   flex: .25;
 }
 
-/* line 10, _styles.scss */
+/*used for extends. Can use % for place holder instead of a class. Place holderr doesn't have arguments*/
+/* line 7, _styles.scss */
+header, li {
+  color: #575757;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* line 22, _styles.scss */
 body {
   display: #aeaeae;
 }
 
-/* line 14, _styles.scss */
+/* line 26, _styles.scss */
 header {
   background-color: #01017c;
   border-radius: 3px;
 }
 
-/* line 18, _styles.scss */
+/* line 31, _styles.scss */
+li::before {
+  content: "What is 1+2: 3";
+}
+
+/* line 34, _styles.scss */
 .headline {
   background-color: #aeaeae;
   border-radius: 3px;
 }
 
-/* line 22, _styles.scss */
+/* line 38, _styles.scss */
 nav {
   background-color: #01017c;
   border-radius: 3px;
 }
 
-/* line 27, _styles.scss */
+/* line 46, _styles.scss */
 .centerArticleAndAside article {
   background-color: red;
   border-radius: 3px;
 }
-/* line 30, _styles.scss */
+/* line 49, _styles.scss */
 .centerArticleAndAside aside {
   background-color: purple;
   border-radius: 3px;

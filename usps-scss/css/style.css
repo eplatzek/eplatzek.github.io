@@ -1,0 +1,237 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, _reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 27, _reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 31, _reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, _reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 37, _reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 40, _reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 45, _reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* End of CSS from Meyer */
+/* CSS RESET FOR NAV LI ELEMENTS*/
+/* line 54, _reset.scss */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* BORDER BOX SIZING */
+/* line 61, _reset.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 6, _styles.scss */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* line 11, _styles.scss */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 17, _styles.scss */
+#sizer {
+  position: absolute;
+  right: 0;
+}
+
+/* line 22, _styles.scss */
+nav {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 27, _styles.scss */
+nav ul li {
+  width: 25%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* line 37, _styles.scss */
+nav ul li a {
+  color: #6281a5;
+  text-decoration: none;
+}
+
+/* line 42, _styles.scss */
+header {
+  background-color: #a8d0ff;
+  overflow: hidden;
+}
+
+/* line 46, _styles.scss */
+header img {
+  display: block;
+  width: 250px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* line 56, _styles.scss */
+#hero {
+  height: 200px;
+  background-image: url(../img/sky.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+/* line 64, _styles.scss */
+main {
+  background-color: #eaeaea;
+}
+
+/* line 67, _styles.scss */
+article {
+  width: 80%;
+  float: right;
+  background-color: white;
+  padding: 0 40px 60px;
+  margin-right: 5%;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* line 77, _styles.scss */
+main img {
+  width: 30%;
+  border-radius: 50%;
+  position: absolute;
+  left: 10%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  -webkit-transition: left 150ms ease-in-out,-webkit-transform 300ms ease-in-out;
+  transition: left 150ms ease-in-out,transform 300ms ease-in-out;
+  background-color: #ddd;
+}
+
+/* line 88, _styles.scss */
+main img:hover {
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+  left: 0%;
+}
+
+/* line 93, _styles.scss */
+article:before {
+  content: "";
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: -50px;
+  background-image: url("../img/mail.png");
+  background-repeat: repeat-x;
+}
+
+/* line 106, _styles.scss */
+article h1 {
+  font-size: 1.75em;
+  margin-bottom: 10px;
+}
+
+/* line 111, _styles.scss */
+article p {
+  font-size: 0.875em;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+/* line 117, _styles.scss */
+article h2 {
+  font-size: 1.25em;
+  text-align: right;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+/* line 123, _styles.scss */
+footer {
+  background-color: #323232;
+  color: white;
+  font-size: 12px;
+  padding: 15px 0px;
+}
+
+@media (max-width: 400px) {
+  /* line 131, _styles.scss */
+  nav ul li {
+    width: 100%;
+    display: block;
+  }
+}
+@media (max-width: 500px) {
+  /* line 138, _styles.scss */
+  nav ul li {
+    font-size: 13px;
+  }
+}

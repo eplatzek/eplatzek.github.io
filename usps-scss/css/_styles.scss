@@ -1,0 +1,141 @@
+@function fontsize-calc($target,$context){
+@return $target/$context;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+#sizer{
+    position: absolute;
+    right:0;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    width:25%;
+    display: inline-block;
+    float:left;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase
+}
+
+nav ul li a {
+    color: rgb(98, 129, 165);
+    text-decoration: none;
+}
+
+header{
+    background-color: rgb(168, 208, 255);  
+    overflow: hidden;
+}
+header img {
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+#hero {
+    height: 200px;
+    background-image: url(../img/sky.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+main {
+    background-color: #eaeaea;
+}
+article {
+    width: 80%;
+    float: right;
+    background-color: rgb(255, 255, 255);
+    padding: 0 40px 60px;
+    margin-right: 5%;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+main img {
+    width: 30%;
+    border-radius: 50%;
+    position: absolute;
+    left: 10%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: left 150ms ease-in-out,transform 300ms ease-in-out;
+    background-color: #ddd;
+}
+
+main img:hover{
+    transform: rotate(360deg);
+    left: 0%;
+    
+}
+article:before {
+    content: "";
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    top: -50px;
+    background-image: url("../img/mail.png");
+    background-repeat: repeat-x;
+    
+}
+article h1 {
+    font-size: fontsize-calc(28,16)+em;
+    margin-bottom: 10px;
+}
+
+article p {
+    font-size: fontsize-calc(14,16)+em;;
+    line-height: 1.4;
+    margin: 10px 0;
+}
+
+article h2 {
+    font-size: fontsize-calc(20,16)+em;;
+    text-align: right;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+footer {
+    background-color: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    padding: 15px 0px;
+}
+
+@media (max-width:400px){
+    nav ul li {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media (max-width:500px){
+    nav ul li {
+        font-size: 13px;
+    }
+}
