@@ -10,8 +10,7 @@ header{
     flex-direction: column;
 
     .pre-nav{
-        flex:.5;
-        display:flex;
+        flex:.3;       display:flex;
         flex-direction: row;
         justify-content: space-between;
         #newsletter {
@@ -22,9 +21,7 @@ header{
             display:flex;
             flex-direction:row;
             a{
-                flex:1;
-                
-            }
+                flex:1;             }
         }
     }
     .container{
@@ -49,24 +46,57 @@ header{
             }
         }
     }
-    
+
 }
 
 body{
     flex:1;
     display:flex;
 
-    #hero {
-        flex:1;
+    .mid-page{
+        flex:1.5;
         display:flex;
-        img{
+        flex-direction: row;
+        #hero {
+            flex:1;
+            display:flex;
+            img{
+                flex:1;
+            }
+        }
+
+        #side-section{
+            flex:.5;          display:flex;
+            #hours{
+                flex:1;  
+            }
+            #location{
+                flex:1;
+            }
+        }
+    }
+
+    .bottom-page{
+        flex:.5;
+        display:flex;
+        flex-direction: row;
+        .contact-us{
+            flex: 2;
+        }
+
+        .twitter-feed{
+            flex:1;
+        }
+
+        .fb-feed{
             flex:1;
         }
     }
 }
 
 
-.pre-nav  {
+/*For testing*/
+.mid-page  {
     border: 2px solid red;  
     font-size: 30px;
 }

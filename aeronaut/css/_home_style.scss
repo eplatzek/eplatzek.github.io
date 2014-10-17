@@ -11,9 +11,13 @@
 
 $aero-blue: #a8cde2;
 $aero-blue-dk: #5D63AF;
-$aero-green-dk: #c5f4ff;
+$aero-blue-lt: #c5f4ff;
 $aero-yellow: #ffb300;
 $aero-yellow-dk: rgba(163, 115, 0, 0.94);
+$border-rad: 3em;
+$side-marg: 1em;
+$side-pad: .7em;
+
 
 html {
     background-image: url(../img/sky.png);
@@ -22,21 +26,36 @@ html {
 
 }
 
-header {
+header,body {
     margin: 0 auto;
     width: 90%;
 }
 
+.pre-nav{
+    margin-bottom: 1em;
+}
 .pre-nav a{
-    color: $aero-blue-dk;
+    color: $aero-blue-lt;
     font-family: TrendSlabOne;
-    font-size: .65em;
+    font-size: 1.2em;
     text-decoration: none;
-    transition: 2sec;
+    text-shadow: 0.125em 0.125em $aero-blue-dk;
+    transition: 0.2s ease;
 }
 
+.pre-nav a img{
+    width: 90%;
+    transition: 0.1s ease;
+}
+
+.pre-nav a img:hover{
+    width: 95%;
+    
+}
 .pre-nav a:hover{
-    color: $aero-green-dk;
+
+    color: $aero-blue-dk;
+    text-shadow: 0.125em 0.125em $aero-blue-lt;
 }
 
 nav ul li {
@@ -46,20 +65,62 @@ nav ul li {
 }
 
 nav ul li a {
-    color: $aero-blue-dk;
+    font-size: 1em;
+    color: $aero-blue-lt;
     font-family: TrendSlabOne;
     text-decoration: none;
-
+    text-shadow: 0.125em 0.125em $aero-blue-dk;
+    transition: 0.1s ease;
 }
 
 nav ul li a:hover{
-    color: $aero-green-dk;
+    color: $aero-blue-dk;
+    text-shadow: 0.125em 0.125em $aero-blue-lt;
+}
+
+.mid-page{
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 #hero img{
-max-width:100%;
+
 }
 
-main {
+.hours, .location{
+    margin: $side-marg;
+    padding: $side-pad;
+    
+    font-family: german-font;
+    font-size: .5em;
+
+    border: .017em sold $aero-blue-dk;
+    
+    background-color: white;
+    border-radius: $border-rad;
+     box-shadow: .2em .2em .25em #888888;
+}
+
+.bottom-page{
+    padding-top: 1em;
+    padding-bottom: .5em;
+}
+
+.contact-us, .twitter-feed, .fb-feed{
+    margin: .5em;
+    padding: 1.2em;
+    
+    font-family: german-font;
+    font-size: .65em;
+
+    border: .017em sold $aero-blue-dk;
+    
+    background-color: white;
+    border-radius: $border-rad/2;
+     box-shadow: .2em .2em .25em #888888;
+    
+    
+      white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 }
