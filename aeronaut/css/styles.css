@@ -1,0 +1,202 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* End of CSS from Meyer */
+/* CSS RESET FOR NAV LI ELEMENTS*/
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* BORDER BOX SIZING */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*Fonts from Aeronaut*/
+.skinny-font {
+  font-family: DinLightAlternative;
+}
+
+.german-font {
+  font-family: TrendSlabOne;
+  letter-spacing: .1em;
+}
+
+.white {
+  color: white;
+}
+
+@font-face {
+  font-family: 'TrendSlabOne';
+  src: url("webfonts/2B0FE8_0_0.eot");
+  src: url("webfonts/2B0FE8_0_0.eot?#iefix") format("embedded-opentype"), url("webfonts/2B0FE8_0_0.woff") format("woff"), url("webfonts/2B0FE8_0_0.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'DinLightAlternative';
+  src: url("webfonts/din-lightalternative.ttf");
+}
+html {
+  background-image: url(../img/sky.png);
+  background-size: cover;
+  background-position: fixed;
+}
+
+header {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.pre-nav a {
+  color: #5d63af;
+  font-family: TrendSlabOne;
+  font-size: .65em;
+  text-decoration: none;
+  transition: 2sec;
+}
+
+.pre-nav a:hover {
+  color: #c5f4ff;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  list-style-type: none;
+  margin: .5em;
+}
+
+nav ul li a {
+  color: #5d63af;
+  font-family: TrendSlabOne;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #c5f4ff;
+}
+
+#hero img {
+  max-width: 100%;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+header .pre-nav {
+  flex: .5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header .pre-nav #newsletter {
+  flex: 3;
+}
+header .pre-nav #media-links {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+header .pre-nav #media-links a {
+  flex: 1;
+}
+header .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+header .container .middle {
+  flex: 3;
+  display: flex;
+}
+header .container .middle img {
+  flex: 1;
+}
+header .container nav {
+  flex: 1;
+  display: flex;
+}
+header .container nav ul {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+body {
+  flex: 1;
+  display: flex;
+}
+body #hero {
+  flex: 1;
+  display: flex;
+}
+body #hero img {
+  flex: 1;
+}
+
+.pre-nav {
+  border: 2px solid red;
+  font-size: 30px;
+}

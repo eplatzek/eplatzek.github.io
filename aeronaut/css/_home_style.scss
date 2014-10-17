@@ -1,0 +1,65 @@
+/*Fonts from Aeronaut*/
+.skinny-font{font-family:DinLightAlternative;}
+.german-font{
+    font-family:TrendSlabOne;
+    letter-spacing:.1em;
+}
+.white{color:white;}
+
+@font-face {font-family: 'TrendSlabOne';src: url('webfonts/2B0FE8_0_0.eot');src: url('webfonts/2B0FE8_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2B0FE8_0_0.woff') format('woff'),url('webfonts/2B0FE8_0_0.ttf') format('truetype');}
+@font-face{font-family: 'DinLightAlternative';src:url('webfonts/din-lightalternative.ttf');} 
+
+$aero-blue: #a8cde2;
+$aero-blue-dk: #5D63AF;
+$aero-green-dk: #c5f4ff;
+$aero-yellow: #ffb300;
+$aero-yellow-dk: rgba(163, 115, 0, 0.94);
+
+html {
+    background-image: url(../img/sky.png);
+    background-size: cover;
+    background-position: fixed;
+
+}
+
+header {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.pre-nav a{
+    color: $aero-blue-dk;
+    font-family: TrendSlabOne;
+    font-size: .65em;
+    text-decoration: none;
+    transition: 2sec;
+}
+
+.pre-nav a:hover{
+    color: $aero-green-dk;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    list-style-type: none;
+    margin: .5em;
+}
+
+nav ul li a {
+    color: $aero-blue-dk;
+    font-family: TrendSlabOne;
+    text-decoration: none;
+
+}
+
+nav ul li a:hover{
+    color: $aero-green-dk;
+}
+
+#hero img{
+max-width:100%;
+}
+
+main {
+
+}
