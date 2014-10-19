@@ -1,0 +1,92 @@
+html, body {    
+    display:flex;
+    flex-direction: column;
+}
+
+header{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+
+    .pre-nav{      
+        flex:1;       display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        #media-spacer {
+            flex:3;
+        }
+        #media-links {
+            flex:1;
+            display:flex;
+            flex-direction:row;
+            justify-content: flex-end;
+            a{
+                flex:1;             }
+        }
+    }
+    .container{
+        flex:1;
+        display:flex;
+        flex-direction: column;
+        .middle{
+            flex:3;
+            display:flex;
+            img {
+                flex: 1;
+            }
+        }
+        nav {
+            flex:1;
+            display:flex;
+            ul{
+                flex:1;
+                display:flex;
+                flex-direction: row; 
+                justify-content: center;
+            }
+        }
+    }
+
+}
+
+body{
+    flex:1;
+    display:flex;
+
+    .mid-page{
+        flex:1.5;
+        display:flex;
+        flex-direction: row;
+        #hero {
+            flex:1;
+            display:flex;
+            img{
+            }
+        }
+
+        #side-section{
+            flex:.5;          display:flex;
+            #hours{
+                flex:1;  
+            }
+            #location{
+                flex:1;
+            }
+        }
+    }
+
+    .bottom-page{
+        flex:6;
+        display:flex;
+        flex-direction: row;
+        .contact-us{
+            flex: 2;
+        }
+
+        .twitter-feed{
+        }
+
+        .fb-feed{
+        }
+    }
+}
