@@ -91,8 +91,8 @@ table {
   src: url("webfonts/din-lightalternative.ttf");
 }
 html {
-  background-image: url(../img/sky.png);
-  background-size: cover;
+  background-image: url(../img/sky3.png);
+  background-size: 100% 100%;
   background-position: fixed;
 }
 
@@ -103,15 +103,8 @@ header, body {
 
 .pre-nav {
   margin-bottom: 1em;
-}
-
-.pre-nav a {
-  color: #c5f4ff;
-  font-family: TrendSlabOne;
-  font-size: 1.2em;
-  text-decoration: none;
-  text-shadow: 0.125em 0.125em #5d63af;
-  transition: 0.2s ease;
+  height: 1.9em;
+  padding-top: .5em;
 }
 
 .pre-nav a img {
@@ -121,11 +114,6 @@ header, body {
 
 .pre-nav a img:hover {
   width: 95%;
-}
-
-.pre-nav a:hover {
-  color: #5d63af;
-  text-shadow: 0.125em 0.125em #c5f4ff;
 }
 
 nav ul li {
@@ -152,11 +140,20 @@ nav ul li a:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+#hero {
+  padding: 1em;
+}
+
+#hero img {
+  width: 100%;
+  height: 100%;
+}
+
 .hours, .location {
   margin: 1em;
-  padding: 0.7em;
+  padding: 1em;
   font-family: german-font;
-  font-size: .5em;
+  font-size: 1em;
   border: 0.017em sold #5d63af;
   background-color: white;
   border-radius: 3em;
@@ -177,13 +174,9 @@ nav ul li a:hover {
   background-color: white;
   border-radius: 1.5em;
   box-shadow: .2em .2em .25em #888888;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 html, body {
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -194,18 +187,19 @@ header {
   flex-direction: column;
 }
 header .pre-nav {
-  flex: .3;
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-header .pre-nav #newsletter {
+header .pre-nav #media-spacer {
   flex: 3;
 }
 header .pre-nav #media-links {
   flex: 1;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 header .pre-nav #media-links a {
   flex: 1;
@@ -246,9 +240,6 @@ body .mid-page #hero {
   flex: 1;
   display: flex;
 }
-body .mid-page #hero img {
-  flex: 1;
-}
 body .mid-page #side-section {
   flex: .5;
   display: flex;
@@ -260,22 +251,10 @@ body .mid-page #side-section #location {
   flex: 1;
 }
 body .bottom-page {
-  flex: .5;
+  flex: 6;
   display: flex;
   flex-direction: row;
 }
 body .bottom-page .contact-us {
   flex: 2;
-}
-body .bottom-page .twitter-feed {
-  flex: 1;
-}
-body .bottom-page .fb-feed {
-  flex: 1;
-}
-
-/*For testing*/
-.mid-page {
-  border: 2px solid red;
-  font-size: 30px;
 }
