@@ -17,7 +17,8 @@ $aero-yellow-dk: rgba(163, 115, 0, 0.94);
 $border-rad: 1em;
 $side-marg: 1em;
 $side-pad: 1em;
-
+$description-text: 1.25em;
+$transparent-bk: rgba(255, 255, 255, 0.3);
 
 html {
     background-image: url(../img/sky4-short.png);
@@ -68,20 +69,20 @@ nav ul li a:hover{
 }
 
 .mid-page{
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: $transparent-bk;
 }
 
-#hero {
+.hero {
     padding: $side-pad;
 }
-#hero img{
-    width:100%;
-    height:100%;
+.hero img,{
+    height:30em;
 }
 
-.hours, .location{
+.hours, .location, .who{
     margin: $side-marg;
     padding: $side-pad;
+    text-align: center;
     
     font-family: german-font;
     font-size: 1em;
@@ -93,12 +94,16 @@ nav ul li a:hover{
      box-shadow: .2em .2em .25em #888888;
 }
 
+.who{
+    font-size: $description-text;
+}
+
 .bottom-page{
     padding-top: 1em;
     padding-bottom: .5em;
 }
 
-.contact-us, .twitter-feed, .fb-feed{
+.blurb, .contact-us, .other-media, .twitter-feed, .fb-feed{
     margin: .5em;
     padding: 1.2em;
     
@@ -113,7 +118,24 @@ nav ul li a:hover{
 
 }
 
-footer{
-    background-color: rgba(255, 255, 255, 0.3);
-    justify-items: center;
+.gud, .barismo{
+    margin-top: .5em;
+    margin-bottom: .5em;
+    background-color: $transparent-bk;
+    
+    .blurb{
+        font-family: german-font;
+        font-size: $description-text;
+        text-align: center;
+    }
+}
+
+.gud img, .barismo img{
+    padding: $side-pad;
+    width:100%;
+    height:100%;
+}
+footer .container{
+    background-color: $transparent-bk;
+    text-align: center;
 }

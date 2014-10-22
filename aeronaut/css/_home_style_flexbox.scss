@@ -9,28 +9,35 @@ header{
     flex-direction: column;
 
     .pre-nav{      
-        flex:1;       display:flex;
+        flex:1;       
+        display:flex;
         flex-direction: row;
         justify-content: space-between;
+        
         #media-spacer {
             flex:3;
         }
+        
         #media-links {
             flex:1;
             display:flex;
             flex-direction:row;
             justify-content: flex-end;
+    
             a{
                 flex:1;             }
         }
     }
-    .container{
-        flex:1;
+    
+    .logo-and-nav{
+        flex:3;
         display:flex;
         flex-direction: column;
-        .middle{
+        
+        .logo{
             flex:3;
             display:flex;
+            
             img {
                 flex: 1;
             }
@@ -38,6 +45,7 @@ header{
         nav {
             flex:1;
             display:flex;
+        
             ul{
                 flex:1;
                 display:flex;
@@ -54,33 +62,95 @@ body{
     display:flex;
 
     .mid-page{
-        flex:1.5;
         display:flex;
         flex-direction: row;
-        #hero {
+        
+        .hero {
             flex:1;
             display:flex;
+            
             img{
             }
         }
 
-        #side-section{
-            flex:.5;          display:flex;
-            #hours{
-                flex:1;  
+        .side-section{
+            flex:.5;          
+            display:flex;
+            flex-direction: column;
+            
+            .hours{
             }
-            #location{
-                flex:1;
+            
+            .location{
+            }
+        
+            .who{
             }
         }
     }
 
+        
+        .gud{
+            flex:1;
+            display:flex;
+            flex-direction: row;
+            
+            .text-left{
+                flex:1;
+                display:flex;
+                flex-direction: column;
+                .blurb{
+                    flex:2;
+                }
+                .blurb-spacer{
+                    flex:1;
+                }
+            }
+    
+            
+            .img-right{
+                flex:3;
+                display:flex;
+                
+                img{
+                    flex:1;
+                }
+            }
+        }
+        .barismo{
+            flex:1;
+            display:flex;
+            flex-direction: row-reverse;
+            
+            .text-left{
+                flex:1;
+                display:flex;
+                flex-direction: column;
+                .blurb{
+                    flex:2.8;
+                }
+                .blurb-spacer{
+                    flex:1;
+                }
+            }
+        
+            
+            .img-right{
+                flex:3;
+                display:flex;
+                
+                img{
+                    flex:1;
+                }
+            }
+        }
+    
     .bottom-page{
         flex:6;
         display:flex;
         flex-direction: row;
+        justify-content: space-between;
         .contact-us{
-            flex: 2;
         }
 
         .twitter-feed{
@@ -93,10 +163,8 @@ body{
 
 
 footer{
-display:flex;
-align-items:center;
- .container{   
-     flex:1;
- }
-    
+    display:flex;
+    .container{   
+        flex:1;
+    }
 }
