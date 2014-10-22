@@ -75,13 +75,13 @@ nav ul li a:hover{
 .hero {
     padding: $side-pad;
 }
-.hero img,{
-    height:30em;
+.hero img{
+    width:100%;
 }
 
 .hours, .location, .who{
-    margin: $side-marg;
-    padding: $side-pad;
+    margin: $side-marg/2;
+    padding: $side-pad/2;
     text-align: center;
     
     font-family: german-font;
@@ -103,7 +103,7 @@ nav ul li a:hover{
     padding-bottom: .5em;
 }
 
-.blurb, .contact-us, .other-media, .twitter-feed, .fb-feed{
+.blurb, .contact-us, .twitter-feed, .fb-feed{
     margin: .5em;
     padding: 1.2em;
     
@@ -133,9 +133,18 @@ nav ul li a:hover{
 .gud img, .barismo img{
     padding: $side-pad;
     width:100%;
-    height:100%;
 }
 footer .container{
     background-color: $transparent-bk;
     text-align: center;
 }
+
+iframe {
+    width: 100% !important;
+}
+
+.gud a:link, .barismo a:link {
+    font-weight: bold;
+}
+
+
