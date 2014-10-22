@@ -90,14 +90,24 @@ nav ul li a:hover{
     border: .017em sold $aero-blue-dk;
     
     background-color: white;
-    border-radius: .75em;
+    border-radius: .3em;
      box-shadow: .2em .2em .25em #888888;
 }
 
 .who{
     font-size: $description-text;
+    text-align: justify;
 }
 
+h2 {
+    font-size: 125%;
+    border-bottom: .2em solid black;
+}
+
+br { 
+    line-height: .5em; 
+}
+    
 .bottom-page{
     padding-top: 1em;
     padding-bottom: .5em;
@@ -108,7 +118,7 @@ nav ul li a:hover{
     padding: 1.2em;
     
     font-family: german-font;
-    font-size: .65em;
+    font-size: 1em;
 
     border: .017em sold $aero-blue-dk;
     
@@ -126,25 +136,34 @@ nav ul li a:hover{
     .blurb{
         font-family: german-font;
         font-size: $description-text;
-        text-align: center;
+        
     }
 }
 
+.gud .blurb{
+    text-align: left;
+}
+
+
+.barismo .blurb{
+    text-align: right;
+}
 .gud img, .barismo img{
     padding: $side-pad;
     width:100%;
 }
+
+.contact-text, #foxyform_embed_link_587154{
+    font-size: $description-text;
+    font-family: german-font;
+}
 footer .container{
-    background-color: $transparent-bk;
+    color: $aero-blue-dk;
     text-align: center;
 }
 
 iframe {
     width: 100% !important;
-}
-
-.gud a:link, .barismo a:link {
-    font-weight: bold;
 }
 
 
