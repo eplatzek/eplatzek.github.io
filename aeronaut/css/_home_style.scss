@@ -79,13 +79,17 @@ nav ul li a:hover{
     width:100%;
 }
 
+.side-section, .barismo .text-left{
+    margin-right: .2em;
+}
+
 .hours, .location, .who{
     margin: $side-marg/2;
     padding: $side-pad/2;
     text-align: center;
     
     font-family: german-font;
-    font-size: 1em;
+    font-size: 1.2em;
 
     border: .017em sold $aero-blue-dk;
     
@@ -129,8 +133,7 @@ br {
 }
 
 .gud, .barismo{
-    margin-top: .5em;
-    margin-bottom: .5em;
+    margin-top: 1.5em;
     background-color: $transparent-bk;
     
     .blurb{
