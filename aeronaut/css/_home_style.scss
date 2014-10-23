@@ -22,7 +22,7 @@ $transparent-bk: rgba(255, 255, 255, 0.3);
 
 html {
     background-image: url(../img/sky4-short.png);
-   background-attachment:fixed;
+    background-attachment:fixed;
 }
 
 header,body {
@@ -43,7 +43,7 @@ header,body {
 
 .pre-nav a img:hover{
     width: 95%;
-    
+
 }
 
 nav ul li {
@@ -85,15 +85,15 @@ nav ul li a:hover{
     margin: $side-marg/2;
     padding: $side-pad/2;
     text-align: center;
-    
+
     font-family: german-font;
     font-size: 1.2em;
 
     border: .017em sold $aero-blue-dk;
-    
+
     background-color: white;
     border-radius: .3em;
-     box-shadow: .2em .2em .25em #888888;
+    box-shadow: .2em .2em .25em #888888;
 }
 
 .who{
@@ -107,7 +107,7 @@ h2 {
 }
 
 
-    
+
 .bottom-page{
     padding-top: 1em;
     padding-bottom: .5em;
@@ -116,26 +116,26 @@ h2 {
 .blurb, .contact-us, .twitter-feed, .fb-feed{
     margin: .5em;
     padding: 1.2em;
-    
+
     font-family: german-font;
     font-size: 1em;
 
     border: .017em sold $aero-blue-dk;
-    
+
     background-color: white;
     border-radius: $border-rad/2;
-     box-shadow: .2em .2em .25em #888888;
+    box-shadow: .2em .2em .25em #888888;
 
 }
 
 .gud, .barismo{
     margin-top: 1.5em;
     background-color: $transparent-bk;
-    
+
     .blurb{
         font-family: german-font;
         font-size: $description-text;
-        
+
     }
 }
 

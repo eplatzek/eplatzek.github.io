@@ -1,71 +1,71 @@
 @media (max-width: 480px){
-    
+
     header,body {
         width: 100%;
     }
-    
+
     html {
         background-image: url(../img/sky480.png);
         background-repeat: repeat-y;
 
     }
-    
+
     header{
 
-    .pre-nav{
-        padding-bottom: 3em;
-        
-        #media-spacer {
-            display:none;
-        }
-        
-        #media-links {
-        }
-    }
-    
-    .logo-and-nav{
-       
-        .logo{
-            
-            img {
+        .pre-nav{
+            padding-bottom: 3em;
+
+            #media-spacer {
+                display:none;
             }
-        }
-        nav {
-       
-            ul{
-           }
-        }
-    }
 
-}
-
-body{
-
-    .mid-page{
-        flex-direction: column-reverse;
-        
-        .hero {
-            img{
+            #media-links {
             }
         }
 
-        .side-section{
-            
-            .hours{
+        .logo-and-nav{
+
+            .logo{
+
+                img {
+                }
             }
-            
-            .location{
-            }
-        
-            .who{
+            nav {
+
+                ul{
+                }
             }
         }
+
     }
 
-        
+    body{
+
+        .mid-page{
+            flex-direction: column-reverse;
+
+            .hero {
+                img{
+                }
+            }
+
+            .side-section{
+
+                .hours{
+                }
+
+                .location{
+                }
+
+                .who{
+                }
+            }
+        }
+
+
         .gud{
             flex-direction: column;
-            
+
             .text-left{
 
                 .blurb{
@@ -75,8 +75,8 @@ body{
 
                 }
             }
-    
-            
+
+
             .img-right{             
                 img{
                 }
@@ -84,99 +84,99 @@ body{
         }
         .barismo{
             flex-direction: column;
-            
+
             .text-left{
                 .blurb{
                 }
                 .blurb-spacer{
-               }
+                }
             }
-        
-            
+
+
             .img-right{
                 img{
                 }
             }
         }
-    
-    .bottom-page{
-        flex-direction: column;
-        .contact-us{
-        }
 
-        .twitter-feed{
-        }
+        .bottom-page{
+            flex-direction: column;
+            .contact-us{
+            }
 
-        .fb-feed{
+            .twitter-feed{
+            }
+
+            .fb-feed{
+            }
         }
     }
-}
 
-    
+
 } /*End of max-width: 480px*/
 
 @media (min-width: 480px) and (max-width: 1000px){
-    
+
     header,body {
-     }
-    
+    }
+
     html {
     }
-    
+
     header{
 
-    .pre-nav{
-        
-        #media-spacer {
-        }
-        
-        #media-links {
-        }
-    }
-    
-    .logo-and-nav{
-       
-        .logo{
-            
-            img {
+        .pre-nav{
+
+            #media-spacer {
+            }
+
+            #media-links {
             }
         }
-        nav {
-       
-            ul{
-           }
+
+        .logo-and-nav{
+
+            .logo{
+
+                img {
+                }
+            }
+            nav {
+
+                ul{
+                }
+            }
         }
+
     }
 
-}
+    body{
 
-body{
 
-    
         .mid-page{
-        flex-direction: column-reverse;
-        
-        .hero {
-            img{
+            flex-direction: column-reverse;
+
+            .hero {
+                img{
+                }
+            }
+
+            .side-section{
+                flex-direction: column;
+                .hours{
+                    flex:none;
+                }
+
+                .location{
+                    flex:none;
+                }
+
+                .who{
+                    flex:none;
+                }
             }
         }
 
-        .side-section{
-            flex-direction: column;
-            .hours{
-            flex:none;
-            }
-            
-            .location{
-            flex:none;
-            }
-        
-            .who{
-            flex:none;
-            }
-        }
-    }
-        
         .gud{
             flex-direction: column;
             .text-left{
@@ -188,8 +188,8 @@ body{
 
                 }
             }
-    
-            
+
+
             .img-right{ 
                 flex:1;
                 img{
@@ -203,29 +203,29 @@ body{
                 .blurb{
                 }
                 .blurb-spacer{
-               }
+                }
             }
-        
-            
+
+
             .img-right{
                 flex:2;
                 img{
                 }
             }
         }
-    
-    .bottom-page{
-        flex-direction: column;
-        .contact-us{
-        }
 
-        .twitter-feed{
-        }
+        .bottom-page{
+            flex-direction: column;
+            .contact-us{
+            }
 
-        .fb-feed{
+            .twitter-feed{
+            }
+
+            .fb-feed{
+            }
         }
     }
-}
 
 } /*End of max-width: 880px*/
 // Add Aero mid sizes
