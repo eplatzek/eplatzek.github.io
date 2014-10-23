@@ -5,12 +5,9 @@
     }
     
     html {
-/*        background-image: url(../img/sky480.png);
-        background-repeat: repeat-y;*/
-        background-image: none;
-        
-        background-color: red;
-        
+        background-image: url(../img/sky480.png);
+        background-repeat: repeat-y;
+
     }
     
     header{
@@ -118,14 +115,12 @@ body{
     
 } /*End of max-width: 480px*/
 
-@media (min-width: 480px) and (max-width: 880px){
+@media (min-width: 480px) and (max-width: 1000px){
     
     header,body {
      }
     
     html {
-        background-color: yellow;
-        background-image: none;
     }
     
     header{
@@ -157,13 +152,29 @@ body{
 
 body{
 
-    .mid-page{
+    
+        .mid-page{
         flex-direction: column-reverse;
+        
         .hero {
             img{
             }
         }
- 
+
+        .side-section{
+            flex-direction: column;
+            .hours{
+            flex:none;
+            }
+            
+            .location{
+            flex:none;
+            }
+        
+            .who{
+            flex:none;
+            }
+        }
     }
         
         .gud{
@@ -217,3 +228,4 @@ body{
 }
 
 } /*End of max-width: 880px*/
+// Add Aero mid sizes
