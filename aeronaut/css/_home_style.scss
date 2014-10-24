@@ -28,24 +28,32 @@ html {
 header,body {
     margin: 0 auto;
     width: 90%;
+    padding-left: 3%;
+}
+.float-media {
+    position: fixed;
+    left: .1em;
+    top: 5em;
+    width: 8%;
 }
 
-.pre-nav{
-    margin-bottom: 1em;
-    height: 1.9em;
-    padding-top: .5em;
+.float-media a img{
+    padding-bottom: .5em;
+    width: 80%;
+    transition: 0.2s ease;
 }
 
-.pre-nav a img{
+.float-media a img:hover{
     width: 90%;
-    transition: 0.1s ease;
 }
 
-.pre-nav a img:hover{
-    width: 95%;
-
+.logo-and-nav{
+    margin-top: 1em;
 }
 
+.logo{
+    height: 6em;
+}
 nav ul li {
     text-transform: uppercase;
     list-style-type: none;
@@ -53,7 +61,7 @@ nav ul li {
 }
 
 nav ul li a {
-    font-size: 1em;
+    font-size: 1.1em;
     color: $aero-blue-lt;
     font-family: TrendSlabOne;
     text-decoration: none;

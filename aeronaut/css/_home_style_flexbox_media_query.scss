@@ -4,13 +4,14 @@
         width: 100%;
     }
 
+    body {
+        margin-left: 5%;
+    }
     html {
         background-image: url(../img/sky480.png);
         background-repeat: repeat-y;
-
     }
 
-    header{
 
         .pre-nav{
             padding-bottom: 3em;
@@ -33,11 +34,13 @@
             nav {
 
                 ul{
+                    li a {
+                        font-size: .8em;
+                    }
                 }
             }
         }
 
-    }
 
     body{
 
@@ -229,3 +232,27 @@
 
 } /*End of max-width: 880px*/
 // Add Aero mid sizes
+
+
+
+.float-media a img{
+    padding-bottom: .5em;
+    width: 80%;
+    transition: 0.2s ease;
+}
+
+.float-media a img:hover{
+    width: 90%;
+}
+
+
+@media (min-width: 1000px){
+
+    .float-media a img{
+        width: 60%;
+    }
+
+    .float-media a img:hover{
+        width: 75%;
+    }
+}
