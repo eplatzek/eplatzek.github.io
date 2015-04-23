@@ -118,16 +118,11 @@ function addCard(card, person) {
 function isBusted(person) {
     //Calculate min value assuming Aces are 1.
     var minVal = ((eval(person + "Aces") * 1) + eval(person + "Sum"));
-    console.log("IsBustedMinVal");
-    console.log(minVal);
-    console.log(eval(person + "Aces"));
-    console.log(eval(person + "Sum"));
       
     //If busted set the person's NotBusted flag and disable the hit and stick buttons. 
     if (minVal > 21) {
         eval(person + "NotBusted = false");
         if (person === "player") {
-            console.log( $(".hiddenCard"));
             showHidden();
             $(".results").html("Dealer Wins: Player Busts");
             $(".hit").prop("disabled", true);
@@ -172,9 +167,6 @@ function calcMaxPlayer(){
     var theseAces = playerAces;
     var theseSum = playerSum;
     if (theseAces === 0){
-        console.log("calcMaxPlayerIf");
-        console.log(theseAces);
-        console.log(theseSum);
         return parseInt(theseSum);
                     
     }
@@ -182,15 +174,10 @@ function calcMaxPlayer(){
         var minScore = theseAces + theseSum;
         var maxDiff = 21 - minScore;
         if (maxDiff > 9){
-            console.log("calcMaxPlayerElse");
-            console.log(theseAces);
-            console.log(theseSum);
-            console.log(minScore);
             return (minScore + 10);
         }
         
         else{
-            console.log("calcMaxPlayerElseElse");
             return minScore;
             }
     }
@@ -200,24 +187,15 @@ function calcMaxDealer(){
     var theseAces = dealerAces;
     var theseSum = dealerSum;
     if (theseAces === 0){
-                    console.log("calcMaxDealerIf");
-console.log(theseAces);
-console.log(theseSum);
         return parseInt(theseSum);
     }
     else {
         var minScore = theseAces + theseSum;
         var maxDiff = 21 - minScore;
         if (maxDiff > 9){
-            console.log("calcMaxDealerElse");
-console.log(theseAces);
-console.log(theseSum);
-console.log(minScore);
-
             return (minScore + 10);
         }
         else{
-            console.log("calcMaxDealerElseElse");
             return minScore;
             }
     }
@@ -246,9 +224,6 @@ function stickMe() {
     while (dealerNotBusted && dealerHit){
         var maxPlayer = calcMaxPlayer();
         var maxDealer = calcMaxDealer();
-        console.log("While Loop:");
-        console.log(maxPlayer);
-        console.log(maxDealer);
         if (maxDealer === maxPlayer){
             dealerHit = false;
             showHidden();
