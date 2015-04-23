@@ -129,7 +129,7 @@ function isBusted(person) {
         if (person === "player") {
             console.log( $(".hiddenCard"));
             showHidden();
-            $(".results").html("Busted: Dealer Wins");
+            $(".results").html("Dealer Wins: Player Busts");
             $(".hit").prop("disabled", true);
             $(".stick").prop("disabled", true);
         }
@@ -249,7 +249,12 @@ function stickMe() {
         console.log("While Loop:");
         console.log(maxPlayer);
         console.log(maxDealer);
-        if (maxPlayer > maxDealer){
+        if (maxDealer === maxPlayer){
+            dealerHit = false;
+            showHidden();
+            $(".results").html("Dealer Wins: Tied Score"); 
+        }
+        else if (maxPlayer > maxDealer){
             hitDealer();
         }
         else {
@@ -260,6 +265,6 @@ function stickMe() {
     }
     if (!dealerNotBusted){
         showHidden();
-        $(".results").html("Dealer Busts");
+        $(".results").html("Player Wins: Dealer Busts");
     }
 }
