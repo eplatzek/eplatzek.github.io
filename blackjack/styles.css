@@ -102,7 +102,7 @@ background-position:center;
 
 
 @media screen and (max-width:640px) {
- #dealer, #player {width: 90%; background-color: blue;}   
+ #dealer, #player {width: 90%;}   
     
 div[class*="card"] { float:left;}
     
@@ -112,6 +112,5 @@ div[class*="card"] { float:left;}
 @media screen and (min-width:720px){
  #dealer, #player {
     width: 350px;
-    background-color: green;
 }   
 }
