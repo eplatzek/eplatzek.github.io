@@ -5,12 +5,14 @@
 }
 
 #dealer, #player {
-    font-family: 'Lato', sans-serif;  
+    font-family: 'Lato', sans-serif;
     float:left;
     width: 40%;
 }
 
-
+.subheader {
+    font-size: 1.5em;
+}
 
 button {
     background:none;
@@ -39,19 +41,16 @@ button:hover:disabled{
 }   
 
 div[class*="card"] {
-    margin-left: 2px;
-    margin-right: 2px;   
+    margin-top: .5em;
     float: left;
-    padding: 3em;
+    padding: 2.4em;
     text-align: center;
    /* border: 1px solid red;
     border-radius: 5em; */
     
     font-family: 'Playfair Display', serif;
     color:white;
-/*    -webkit-transition: width 2s, height 2s, background 2s;
-    transition: width 2s, height 2s;
-*/
+    border: 2px solid white;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -87,20 +86,16 @@ background-position:center;
 background-position:center;   
 }
 
-.hiddenCard {
+.card1.hiddenCard {
     background-image: none;
-    border-radius: 5em;
-    border: 2px solid black;
-    padding: 2.5em;
-
-
-    
+    border: 2px solid black;    
 }
 
 
 .results {
     font-family: 'Lato', sans-serif;
     font-size: 1.5em;
+    padding-top: 1.5em;
     clear: both;
 }
 
@@ -115,6 +110,22 @@ div[class*="card"] { float:left;}
 
 
 @media only screen and (min-width:900px){
+ #dealer, #player {
+    width: 450px;
+}   
+}
+
+
+@media only screen and (device-width:640px) {
+ #dealer, #player {
+    width: 90%;
+}   
+    
+div[class*="card"] { float:left;}
+}
+
+
+@media only screen and (device-width:900px){
  #dealer, #player {
     width: 450px;
 }   
