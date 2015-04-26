@@ -100,12 +100,12 @@ background-position:center;
 }
 
 
+
 @media only screen and (max-width:640px) {
- #dealer, #player {
-    width: 90%;
-}   
+ #dealer, #player {width: 90%;}   
     
 div[class*="card"] { float:left;}
+    
 }
 
 
