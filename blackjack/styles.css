@@ -101,32 +101,17 @@ background-position:center;
 
 
 
-@media only screen and (max-width:640px) {
- #dealer, #player {width: 90%;}   
+@media screen and (max-width:640px) {
+ #dealer, #player {width: 90%; background-color: blue;}   
     
 div[class*="card"] { float:left;}
     
 }
 
 
-@media only screen and (min-width:900px){
+@media screen and (min-width:720px){
  #dealer, #player {
-    width: 450px;
-}   
-}
-
-
-@media only screen and (device-width:640px) {
- #dealer, #player {
-    width: 90%;
-}   
-    
-div[class*="card"] { float:left;}
-}
-
-
-@media only screen and (device-width:900px){
- #dealer, #player {
-    width: 450px;
+    width: 350px;
+    background-color: green;
 }   
 }
