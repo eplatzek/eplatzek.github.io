@@ -37,7 +37,8 @@ button:focus{
 }   
 
 button:hover:disabled{
-    border-bottom: 2px solid gray;
+    color: #cb4343;
+    border-bottom: 2px solid #cb4343;
 }   
 
 div[class*="card"] {
@@ -90,7 +91,6 @@ background-position:center;
     background-image: none;
     border: 2px solid black;    
 }
-
 
 .results {
     font-family: 'Lato', sans-serif;

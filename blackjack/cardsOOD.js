@@ -135,10 +135,13 @@ function resetVars() {
 // and assign it to a person
 function addCard(card, person) {
     //Add the card to the person's play area if this fuction is being called in hitMe
+    
     if (person.cards > 1) {
-        $('#' + person.name).find('.card' + (person.cards)).after("<div class='extraCard suit" + (deck[index])[0] + " card" + (person.cards + 1) + "'>" + deck[index].slice(1) + "</div>");
+        $('#' + person.name).find('.card' + (person.cards)).after("<div class='extraCard card" + (person.cards + 1) + "'>X</div>");
+            $('#' + person.name).find('.card' + (person.cards +1)).html(deck[index].slice(1)).addClass("suit" + (deck[index])[0]);
     }
 
+    
     // Parse the card and assign to to sum or aces
     function parseCard(slicedCard) {
 
