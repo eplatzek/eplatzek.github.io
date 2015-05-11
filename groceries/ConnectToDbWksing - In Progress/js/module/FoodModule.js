@@ -1,0 +1,1 @@
+var FoodModule = angular.module("FoodModule", ['ngResource']);
