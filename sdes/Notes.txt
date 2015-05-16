@@ -1,0 +1,22 @@
+1234567890
+
+2740198735
+2740198735
+
+
+1010000010
+
+
+plaintext = 
+IP-1 
+	(fK1
+		(SW 
+			(fK2(IP(ciphertext)))))
+
+
+fK(L, R) = (L * F(R, SK), R)
+SK = Subkey
+* = bit by bit exclusive or function
+
+http://homepage.smc.edu/morgan_david/vpn/assignments/assgt-sdes-encrypt-sample.htm
+

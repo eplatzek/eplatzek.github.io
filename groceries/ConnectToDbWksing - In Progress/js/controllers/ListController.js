@@ -13,5 +13,5 @@ ListModule.controller('ListController',  function ($scope, Lists) {
         });
         list.$save();
     };
-
+console.log("LC");
 });

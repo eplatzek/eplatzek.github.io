@@ -15,5 +15,5 @@ FoodModule.controller('FoodController',  function ($scope, Foods) {
         food.$save();
     };
     */
-
+console.log("FC");
 });
