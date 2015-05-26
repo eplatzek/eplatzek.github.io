@@ -10,7 +10,7 @@
         <script data-semver="1.2.16" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-require="angular.js@1.2.x"></script>
         <script data-semver="1.2.16" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular-resource.min.js" data-require="angular-resource.js@1.2.x"></script>
     </head>
-    <body ng-modules="FoodModule,ListModule">
+    <body ng-app="FoodModule">
     <div ng-controller="ListController">
         <label>Name: <input type="text" name="listName" ng-model="listName"> </input></label>
         <button ng-click="add()">Add new List</button>
