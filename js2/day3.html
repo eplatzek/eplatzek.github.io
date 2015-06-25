@@ -42,6 +42,37 @@ Day 3: Objects
         <ul>
             <li>What are objects</li>
             <li>Vars and Methods</li>
+            <li><xmp>
+var car = {make:"Honda", model:"Civic", color:"white", year:2012};
+                
+//We can also add methods to an objct and use the this to reference our object                
+myCar	function() {return this.make + " " + this.model;}
+car.myCar()                
+                
+//The values are written as name:value pairs (name and value separated by a colon).
+//JavaScript objects are containers for named values.
+//The name:values pairs (in JavaScript objects) are called properties.
+                
+//Referenced in the following manner:
+objectName.propertyName
+objectName[propertyName]
+                              
+//Let's say we have many objects. We can create a "constructor" to make new objects
+                
+function Car(make, model, year, color) {
+    this.make = make;  
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    this.changeColor = function (Newcolor) {
+        this.color = Newcolor;
+    }
+}
+                
+var myCar = new Car("honda","civic",2012,"white");
+
+//Let's give it a paint job!
+myCar.changeColor("red");</xmp></li>
             <li>JSON? Is JSON here?</li>
             <li>http://eplatzek.github.io/blackjack/</li>
         </ul
@@ -63,7 +94,7 @@ We will be modifying the following code
   box.addAlbum(a1);
   box.addAlbum(a2);
   box.addAlbum(a3);
- 
+  
   a1.play() ; // prints "Playing The Who - Tommy"
   a2.play(); // prints "Pink Floyd", "The Wall"
   a1.play(); // prints "Playing The Who - Tommy" 
@@ -72,14 +103,12 @@ We will be modifying the following code
  
   // prints "favorite album is The Who - Tommy"
   console.log("favorite album is " + favorite); 
- 
 }());
-
-    
 </xmp>
     <li>First Challenge: Make this code work.</li>
     <li>Second Challenge: Instead of a console log, update the DOM and have a button to execute your code.  
-    </li>Third Challenge: Instead of printing "Playing the ..." have youtube video link to that album. You are allowed to use whatever resource you want to include the video... google solutions. Please mute your laptop when testing this feature.  
+    <li>Bonus Challenge: Instead of printing "Playing the ..." have youtube video link to that album. You are allowed to use whatever resource you want to include the video... google solutions. Please mute your laptop when testing this feature.
+    <a href="http://bfy.tw/VYS">CLICK HERE</a>
 </ol>
 </body>
 </html>
