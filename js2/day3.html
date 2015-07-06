@@ -7,108 +7,13 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/navbar.js"></script>
+  
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">JavaScript 2</a>
-      </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Days 
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                
-                <li><a href="index.html">Day 1: Review</a></li>
-                <li><a href="day2.html">Day 2: Arrays</a></li>
-                <li class="active"><a href="day3.html">Day 3: Objects</a></li>
-                <li><a href="day4.html">Day 4: Angular!!</a></li>
-                <li><a href="day5.html">Day 5: Mongo DB</a></li>
-                <li><a href="day6.html">Day 6: Mid Terms (Coding Challenge)</a></li>
-                <li><a href="day7.html">Day 7: Mid Terms (Presenting)</a></li>
-                <li><a href="day8.html">Day 8: Routing</a></li>
-                <li><a href="day9.html">Day 9,10,11,12: TBA</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>    
-Day 3: Objects
-<ul>
-	<li>Objects
-        <ul>
-            <li>What are objects</li>
-            <li>Vars and Methods</li>
-            <li><xmp>
-var car = {make:"Honda", model:"Civic", color:"white", year:2012};
-                
-//We can also add methods to an objct and use the this to reference our object                
-myCar	function() {return this.make + " " + this.model;}
-car.myCar()                
-                
-//The values are written as name:value pairs (name and value separated by a colon).
-//JavaScript objects are containers for named values.
-//The name:values pairs (in JavaScript objects) are called properties.
-                
-//Referenced in the following manner:
-objectName.propertyName
-objectName[propertyName]
-                              
-//Let's say we have many objects. We can create a "constructor" to make new objects
-                
-function Car(make, model, year, color) {
-    this.make = make;  
-    this.model = model;
-    this.year = year;
-    this.color = color;
-    this.changeColor = function (Newcolor) {
-        this.color = Newcolor;
-    }
-}
-                
-var myCar = new Car("honda","civic",2012,"white");
-
-//Let's give it a paint job!
-myCar.changeColor("red");</xmp></li>
-            <li>JSON? Is JSON here?</li>
-            <li>http://eplatzek.github.io/blackjack/</li>
-        </ul
-    </li>
-</ul>
-
-<ol>Coding Challenge<br/>
-We will be modifying the following code
-<xmp>
-(function() {
-// Write your code here  
-
-  var box = MusicBox(),
-      a1 = Album("The Who", "Tommy"),
-      a2 = Album("Pink Floyd", "The Wall"),
-      a3 = Album("Sublime", "The Best of Sublime"),
-      favorite;
- 
-  box.addAlbum(a1);
-  box.addAlbum(a2);
-  box.addAlbum(a3);
-  
-  a1.play() ; // prints "Playing The Who - Tommy"
-  a2.play(); // prints "Pink Floyd", "The Wall"
-  a1.play(); // prints "Playing The Who - Tommy" 
- 
-  favorite = box.favoriteAlbum(); 
- 
-  // prints "favorite album is The Who - Tommy"
-  console.log("favorite album is " + favorite); 
-}());
-</xmp>
-    <li>First Challenge: Make this code work.</li>
-    <li>Second Challenge: Instead of a console log, update the DOM and have a button to execute your code.  
-    <li>Bonus Challenge: Instead of printing "Playing the ..." have youtube video link to that album. You are allowed to use whatever resource you want to include the video... google solutions. Please mute your laptop when testing this feature.
-    <a href="http://bfy.tw/VYS">CLICK HERE</a>
-</ol>
+<nav id="myJS2Nav" class="navbar navbar-inverse"></nav>        
+Review of Day 2's assignments
+<ul>    
+</ul>    
 </body>
 </html>

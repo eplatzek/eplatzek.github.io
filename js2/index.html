@@ -7,35 +7,10 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/navbar.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">JavaScript 2</a>
-      </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Days 
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                
-                <li class="active"><a href="index.html">Day 1: Review</a></li>
-                <li><a href="day2.html">Day 2: Arrays</a></li>
-                <li><a href="day3.html">Day 3: Objects</a></li>
-                <li><a href="day4.html">Day 4: Angular!!</a></li>
-                <li><a href="day5.html">Day 5: Mongo DB</a></li>
-                <li><a href="day6.html">Day 6: Mid Terms (Coding Challenge)</a></li>
-                <li><a href="day7.html">Day 7: Mid Terms (Presenting)</a></li>
-                <li><a href="day8.html">Day 8: Routing</a></li>
-                <li><a href="day9.html">Day 9,10,11,12: TBA</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>    
+<nav id="myJS2Nav" class="navbar navbar-inverse"></nav>       
 Welcome<br/> 
     We are Eric Platzek (ericplatzek@gmail.com) and Arturo Ceballos (aceballos118@gmail.com )<br/>
 Day 1: Review
@@ -123,13 +98,14 @@ myElement.innerHTML = '<p>Now i have an input element too!</p>
     </li>
 </ul>
 
-<ol>Coding Challenge<br/>
+<ol><b>Coding Challenge</b><br/>
 Layout: 2 Text Inputs, a button to run our JS and an area for results. <br/><br/>
-    <li>First Challenge: The desired behavior is that after we have typed in text in both text inputs and clicked the button, we display the larger string of the two inputs in the results section.</li>
-    <li>Second Challenge: Our client decided that they want a more complicated behavior. If the text entered in is a number then we need to compare the number to the length of the other text. The largest string or biggest number will be displayed in the results area<br/>
-Hint:You will need 4 comparisions (number vs number, string vs string, number vs string, string vs number) and a way to determine if the text is a number.  
+    <li>First Challenge: Create two text inputs, a div with the class "results", and a button attached to a JS function using onclick.</li>
+    <li>Second Challenge: When we click the button, we will console log the larger of the two strings (based on string length).</li>
+    <li>Third Challenge: When we click the button, we will use DOM manipulation to change the "results" div to contain the larger of the two strings.</li>
+    <li>Fourth Challenge: Our client decided that they want a more complicated behavior. If the text entered is a number then we need to compare the number to the length of the other text. The largest string or biggest number will be displayed in the results area<br/>
+Hint: You will need 4 comparisions (number vs number, string vs string, number vs string, string vs number) and a way to determine if the text is a number.  
     </li>
-    
 </ol>
 </body>
 </html>

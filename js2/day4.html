@@ -5,58 +5,121 @@
     <title>Day 4</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/navbar.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">JavaScript 2</a>
-      </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Days 
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                
-                <li><a href="index.html">Day 1: Review</a></li>
-                <li><a href="day2.html">Day 2: Arrays</a></li>
-                <li><a href="day3.html">Day 3: Objects</a></li>
-                <li class="active"><a href="day4.html">Day 4: Angular!!</a></li>
-                <li><a href="day5.html">Day 5: Mongo DB</a></li>
-                <li><a href="day6.html">Day 6: Mid Terms (Coding Challenge)</a></li>
-                <li><a href="day7.html">Day 7: Mid Terms (Presenting)</a></li>
-                <li><a href="day8.html">Day 8: Routing</a></li>
-                <li><a href="day9.html">Day 9,10,11,12: TBA</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>    
-Day 4: Angular!!
+<nav id="myJS2Nav" class="navbar navbar-inverse"></nav>        
+Day 4: Objects
 <ul>
-	<li>Angular
+	<li>Objects
         <ul>
-            <li>What is it?</li>
-            <img src="imgs/curve.jpg" style="width:345px;height:146px;">
-            <li>Why use AngularJS</li>
-            <li>Model, View, Controller?</li>
-            <li>Features</li>        <li>https://docs.angularjs.org/tutorial</li>
-        </ul>
-    </li>
-    <li>Example:<br/>
-    <img src="imgs/basicExample.png" style="width:649px;height:395px;">
+            <li>What are objects</li>
+            <li>Vars and Methods:</br>
+            JavaScript objects are containers for variables and functions.</br>
+            The variables inside of an object are called properties.</br>
+            The inside of a object are called methods.</br>
+            The properties are written as name:value pairs (name and value separated by a colon).</br>
+</li>
+            <li><xmp>Examples:
+var car = {make:"Honda", model:"Civic", color:"white", year:2012};
+                
+//We can also add methods to an object              
+var car = {make:"Honda", model:"Civic", color:"white", year:2012, description:function() {return "I'm a description!!";}}
 
-    </li>
-    <li>Download and follow template as we work through it:<br/>https://github.com/eplatzek/angtutorial
+//We can call that method
+car.description()            
+
+
+//We can also add methods to an object and use the ".this" to reference properties inside of our object                
+var car = {make:"Honda", model:"Civic", color:"white", year:2012, description:function() {return this.make + " " + this.model;}}
+</xmp>
+<hr>                                                                                    
+<xmp>                                                                                                                              
+//Let's say we have many objects. We can create a "constructor" to make new objects. 
+//We are using the "this." notation to create variables. "this." creates public variables.
+                
+function Car(make, model, year, color) {
+    this.myMake = make;  
+    this.myModel = model;
+    this.myYear = year;
+    this.myColor = color;
+    this.changeColor = function (Newcolor) {
+        this.color = Newcolor;
+    }
+}
+                
+var myCar = new Car("honda","civic",2012,"white");
+
+//Let's give it a paint job!
+myCar.changeColor("red");
+                     
+//We are using the "this." syntax to allow our object to have public properties. 
+//These are properites we can access outside of our object using the dot notation.
+//For example:
+myCar.year  
+
+//We have two way to reference public properties::
+objectName.propertyName
+objectName["propertyName"]
+
+The second way is useful if we want to access propertes on the fly by passing strings
+var myProp = "myColor"
+myCar[myProp]
+     
+//It is a good idea to make an object's properties private so that only the object's properties. 
+//In this way only methods and other properties inside of an object an access that variable. 
+//To make a property private use the "var" notation instead of "this." notation. 
+//If we also want to access a property outside of the object we can create funtions with do that, we call these functions setters and getters.
+
+Here is an example of where we have a setter andgettor for the numbers of rooms.       
+function House (rooms, colors){
+  
+   //myRoom is now private
+   var myRoom = rooms;
+   this.myColor = colors;
+   
+   //Here is an example of doing something other than a simple assignment to a private variable
+   var mySize = rooms * 10;
+   
+   //This is my setter
+   this.setRoom = function(newRoom){
+       myRoom = newRoom;
+   }
+   
+   //This is my getter
+   this.getRoom = function(){
+       return myRoom;
+   }
+}
+
+
+var bitwise = new House (4, "blue");
+
+//We can set and get the room variable like this:
+bitwise.getRoom();
+bitwise.setRoom(9);
+
+
+//We can also use variables when creating a new object:
+var myBlue = "blue";
+var bitwise2 = new House (4, myBlue);
+      
+</xmp></li>
+        </ul>
     </li>
 </ul>
 
-<ol>Coding Challenge<br/>
-No Challenge, Just follow along
+<ol><b><u>Coding Challenge</u></b><br/>We want to create an address book which will be filled with contacts.
+    <li>First Challenge: Create html page with input fields to create new contact (first name, last name, phone, etc.)
+</li>
+    <li>Second Challenge: Create a button to “save” your contact you just created. Hint: You will need an array to store your created "contacts" each button press should create a new contact and add it to that array. 
+    <li>Third Challenge: Create a button to that displays a list of all of your contacts using DOM manipulation.
+    <li>Fourth Challenge: Create a search bar to search for contacts and display the ones that match. Hint: You will need to iterate through the array of "contacts" and do a string compare on the matching field/field(s)
+</ol>
+<ol><b><u>Useful Links</u></b>
+    <li>Private vs Public object memberships: <a href="http://javascript.crockford.com/private.html">http://javascript.crockford.com/private.html</a></li>
 </ol>
 </body>
 </html>
