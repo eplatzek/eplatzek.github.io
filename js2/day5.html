@@ -24,6 +24,49 @@ Day 5: Mongo DB
         </ul>
     </li>
 </ul>
+<ul>
+    <li>Set up MongoLab
+        <ol>
+            <li>Setup account at: https://mongolab.com/signup/</li>
+            <li>Verify Email:(wait 10-15 minutes)</li>
+            <li>Create a new sandbox plan from (https://mongolab.com/plans/) 
+</li>
+<li>Click Sandbox again. Create sandbox</li>
+<li>Choose Amazon Web Services</li>
+<li>Choose a db name (testepdb)</li>
+<li>Verify that your new MongoDB Deployment has been deployed.</li>
+<li>Click on your new database</li>
+<li>Create a new user to connect</li>
+        </ol>
+    </li>
+    <li>Download MongoDB software
+        <ol>
+            <li>Go to  https://www.mongodb.org/downloads</li>
+            <li>Download the correct operating system installation</li>
+            <li>Choose complete</li>
+            <li>Wait for install to complete.</li>            
+        </ol>
+    </li>
+    <li>Access Your MongoLab installation through MongoDB
+            <ol>
+                <li>Open your command prompt.</li>
+                <li>Got to the location where you have mongodb installed.</li>
+                <li>Copy and paste the code from your mongolab</li>
+                <li> mongo ds049198.mongolab.com:49198/testepdb -u DBUSER -p PASSWORD</li>
+        </ol>
+    </li>
+    <li>Install MongoDB
+        <ol>
+            <li>Install from this site: https://nodejs.org/
+</li>
+            <li>Install mongodb by using node packet manager: npm install mongodb</li>
+            <li>Copy the node example from here: https://github.com/mongolab/mongodb-driver-examples/blob/master/nodejs/nodeSimpleExample.js</li>
+            <li>Update with your URI info</li>
+            <li>Run file</li>
+            <li>Comment out Lines 85-91 (this code deletes the tables)</li>
+        </ol>
+    </li>
+</ul>
 
 <ol><b>Coding Challenge</b><br/>
 We will be modifying our Day 1 Code<br/><br/>
@@ -33,5 +76,13 @@ We will be modifying our Day 1 Code<br/><br/>
     <li>Fourth Challenge: Update data in that table.</li>
     </li> 
 </ol>
+<ol><b>Useful Sites</b><br/>
+    <li>https://www.mongodb.com/mongodb-and-mysql-compared</li>
+    <li>https://github.com/mongolab/mongodb-driver-examples/blob/master/nodejs/nodeSimpleExample.js</li>
+    <li>https://nodejs.org/</li>
+    <li>https://www.mongodb.org/downloads</li>
+    <li>https://mongolab.com/signup/</li>
+</ol>
+
 </body>
 </html>
