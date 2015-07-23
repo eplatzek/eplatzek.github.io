@@ -12,102 +12,36 @@
 </head>
 <body>
 <nav id="myJS2Nav" class="navbar navbar-inverse"></nav>        
-Day 10: Review of Angular Parts
+Day 10: Assigning a Final Project
 <ul>
-	<li>Review of Basic Components
-        <ul>
-            <li><xmp>Basics: Two way data binding:
-
-<!doctype html>
-<html ng-app>
-  <head>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-  </head>
-  <body>
-
-    <div>
-      <label>Say Hello:</label>
-      <input type="text" ng-model="myStuff.stuff" placeholder="World">
-      <h1>Hello {{myStuff.stuff}}!</h1>
-    </div>
-
-  </body>
-</html>
-
-Note if you don’t have Batarang installed go here: 
-https://chrome.google.com/webstore/detail/angularjs-batarang-stable/niopocochgahfkiccpjmmpchncjoapek
-Note you should use only the “Stable” version. Googling will produce other versions. 
-
-View the page on your local browser and open inspector. View the AngularJS tab (by installing Baterang if you didn’t already)
-
-Alternative references to our data:
-<h1 ng-bind="myStuff.stuff">
-<h1 ng-bind="'Hello ' + myStuff.stuff + '!'">
-<h1 ng-bind-html="myStuff.stuff">
-
-</xmp> <hr/>
-<xmp>
-In Angular, we use modules to encapsulate code which allows for re-usability. 
-
-
-How to create the module:
-angular.module(‘UnicornModule’, []);
-
-How to start the module in your app:
- <html ng-app="UnicornModule’">
-
-
-
-<!DOCTYPE html>
-<html>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<body>
-
-<div ng-app="UnicornModule" ng-controller="kittenController">
-{{ firstStuff + " " + secondStuff }}
-</div>
-
-<script>
-var app = angular.module("UnicornModule", []);
-app.controller("kittenController", function($scope) {
-    $scope.firstStuff = "Hello";
-    $scope.secondStuff = "World";
-});
-</script>
-</body>
-</html>
-
-</xmp> <hr/>
-<xmp>
-Here is a Controller: 
- $scope.people = [
-   {first: 'Joan', last: 'Smith'},
-    {first: 'John', last: 'Doe'}
-];
-
-Here is a simple View:
-<ul>
-    <li ng-repeat="person in people | orderBy:’last’">
-      {{ person.first }} {{ person.first }}
+	<li>Synopsis: </br> As an exercise in AngularJS, we would like an application that will help a team of developers communicate about the projects they are currently working on.  The application should communicate high level information such as what projects are being worked on, who is working on those projects, when it will be done and current status.  
     </li>
-</ul>
-
-Let’s add these to our current controller that has “stuff”.
-
-</xmp> <hr/>
-<xmp>
-Finally we will introduce Routing and templates (Click on the RoutingDemoLink)
-
-</xmp>            </li>        </ul>
-
+    <li>Scope:
+        <ol>
+            <li>need to see all projects that are part of this “board”</li>
+            <li>must be able to edit all project details: title, description, team, estimated due date</br>NOTES: should not save until user explicitly saves</li>
+            <li>must be able to change the status of a project (not started, on track, delayed, completed)</li>
+            <li>must be able to add comments to a project/br>NOTES: new comments should not be saved until user explicitly saves</li>
+            <li>should be able to view all comments for a project</li>
+        </ol>
+    </li>
+    <li>Bonus:
+        <ol>
+            <li>Date picker for due date.</li>
+            <li>should be able to add an indicator (tag?) to each team member to indicate their role: project owner, client stakeholder, designer, tester, etc.</li>
+            <li>hyperlink support in comments</li>
+        </ol>
+    </li>
+    <li> Suggestions:
+        <ul>
+            <li>You may want to use some sort of modal dialog for edits. At a minimum, there should be a way to “cancel” an edit and to “save” changes.</li>
+            <li>Since we don't have a node or mongo create the users as an array in your static data.
+            </li>
         </ul>
     </li>
-    <li>Functions
-    </li>
-</ul>
+    <li>Hints - view the updated Angular Demo for assistance: https://github.com/eplatzek/angtutorial/tree/master/Finalv2.0</li>
 
-<ol><b>Coding Challenge</b><br/>
-    <li>First Challenge: Create using the routingDemo create additional data to display additional scopes.</br>
-  </ol>
+
+</ul>
 </body>
 </html>

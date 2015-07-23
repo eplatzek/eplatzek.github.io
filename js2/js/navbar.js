@@ -19,8 +19,9 @@ document.getElementById("myJS2Nav").innerHTML =' \
                 <li><a href="day6.html">Day 6: Mongo DB Continued</a></li>    \
                 <li><a href="day7.html">Day 7: Angular Day 1!!</a></li>    \
                 <li><a href="day8.html">Day 8: Angular Day 2!!</a></li>    \
-                <li><a href="day9.html">Day 9: Error Checking</a></li>    \
-                <li><a href="day10.html">Day 10: Angular Review Day 3!!</a></li>    \
+                <li><a href="day9.html">Day 9 Part 2: Error Checking</a></li>    \
+                <li><a href="day9_2.html">Day 9 Part 2: Angular Review Day 3!!</a></li>    \
+                <li><a href="day10.html">Day 10: Assigning a Final Project</a></li>    \
                 <li><a href="day11.html">Day 11 & 12: Final Project Review and Presentation</a></li>    \
                 <li><a href="routingDemo.html">Routing Demo</a></li>    \
               </ul>    \
