@@ -3,45 +3,58 @@
 /*jshint onevar: false, strict:false */
 /*global $, jQuery, alert*/
 
-//Build deck of suits and cards
-var suit = ["H", "D", "S", "C"];
-var cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
-var deck = [];
+/************************************************************
+                    Person Initialization 
+*************************************************************/
 
+function Person(name, sum, aces, cards, notbusted) {
+    // Name is the name of person dealer/player
+    this.name = name;
 
-//Sum is total of value of non-ace cards
-//Aces is the total number of aces dealt to a person
-//Cards is the total number of cards played
-//NotBusted is to check if that person is busted
-var dealerSum = 0;
-var dealerAces = 0;
-var dealerCards = 0;
-var playerSum = 0;
-var playerAces = 0;
-var playerCards = 0;
-var playerNotBusted = true;
-var dealerNotBusted = true;
-$(".hit").prop("disabled", true);
-$(".stick").prop("disabled", true);
-    
+    // Sum is total of value of non-ace cards
+    this.sum = sum;
 
+    // Aces is the total number of aces dealt to a person
+    this.aces = aces;
 
-//Create the deck of 52 cards
-var i;
-var j;
-for (i = 0; i < suit.length; i++) {
-    for (j = 0; j < cards.length; j++) {
-        deck.push(suit[i].concat(cards[j]));
-    }
+    // Cards is the total number of cards played
+    this.cards = cards;
+
+    // NotBusted is to check if that person is busted
+    this.notbusted = notbusted;
 }
 
+// One Dealer and Player to start
+var dealer = new Person("dealer", 0, 0, 0, true);
+var player = new Person("player", 0, 0, 0, true);
 
-/**
- * Randomize array element order in-place.
- * Using Fisher-Yates shuffle algorithm.
- */
-function shuffleArray(array) {
-    
+
+/************************************************************
+                    Deck Initialization 
+*************************************************************/
+
+function createDeck() {
+    // Create the deck of 52 cards stored in array
+    var suit = ["H", "D", "S", "C"];
+    var cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+    var newdeck = [];
+
+    // Vars for loop control
+    var i, j;
+
+    // Concatinate each suit and card to populate the deck
+    for (i = 0; i < suit.length; i++) {
+        for (j = 0; j < cards.length; j++) {
+            newdeck.push(suit[i].concat(cards[j]));
+        }
+    }
+    return newdeck;
+}
+
+// Randomize array element order in-place.
+// Using Fisher-Yates shuffle algorithm.
+function shuffleDeck(array) {
+
     var i, j, temp;
     for (i = array.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
@@ -52,194 +65,220 @@ function shuffleArray(array) {
     return array;
 }
 
+// Suits, cards and empty deck
+var deck = shuffleDeck(createDeck());
 
-//Used to show dealer's card
-function showHidden(){
- $(".hiddenCard").removeClass("hiddenCard");   
-}
-
-//Randomize Deck
-deck = shuffleArray(deck);
-
-//index is the top card of the deck
+// Index is the top card of the deck
 var index = 0;
 
-//This is called on dealMe
-function resetVars() {
-    dealerSum = 0;
-    dealerAces = 0;
-    dealerCards = 0;
-    playerSum = 0;
-    playerAces = 0;
-    playerCards = 0;
-    playerNotBusted = true;
-    dealerNotBusted = true;
-    $(".results").html("");
+
+/************************************************************
+                    Card and Button Configuration  
+*************************************************************/
+
+// By default the deal button should be the only option available
+// Used by resetVars and isBusted
+function disableButtons() {
     $(".hit").prop("disabled", true);
     $(".stick").prop("disabled", true);
-    index = 0;
-    deck = shuffleArray(deck);
-    $(".extraCard").remove();
-        
 }
 
-//This is called whenever a new card is added
+// Execute disableButtons
+disableButtons();
+
+// Used to show dealer's card
+// Used in isBusted and StickMe
+function showHiddenCard() {
+    $(".hiddenCard").removeClass("hiddenCard");
+}
+
+/************************************************************
+                   resetVars function
+*************************************************************/
+
+// Called by dealMe
+function resetVars() {
+
+    // Reset dealer and player to default values
+    dealer.sum = 0;
+    dealer.aces = 0;
+    dealer.cards = 0;
+    dealer.notbusted = true;
+
+    player.sum = 0;
+    player.aces = 0;
+    player.cards = 0;
+    player.notbusted = true;
+
+    // Rest the results to nothing
+    $(".results").html("");
+
+    // By default the deal button should be the only option available
+    disableButtons();
+
+    // Shuffle up the deck
+    deck = shuffleDeck(deck);
+    index = 0;
+
+    // Remove any previously deal cards (beyond the starting two for each person)
+    $(".extraCard").remove();
+
+}
+
+/************************************************************
+                   addCard function
+*************************************************************/
+
+// Used by dealMe and hitMe function to flip the next card
+// and assign it to a person
 function addCard(card, person) {
-    //Temp var to set 
-    var parsedVal;
- 
-    function parseCard(card) {
-        
-        if (card === "A") {
-            return card;
-        } else if (card === "J" || card === "Q" || card === "K") {
-            return 10;
-        } else { return parseInt(card); }
+    //Add the card to the person's play area if this fuction is being called in hitMe    
+    if (person.cards > 1) {
+        $('#' + person.name).find('.card' + (person.cards)).after("<div class='extraCard card" + (person.cards + 1) + "'>X</div>");
+            $('#' + person.name).find('.card' + (person.cards +1)).html(deck[index].slice(1)).addClass("suit" + (deck[index])[0]);
     }
+
     
-    //Parse the value of the card to a number or an Ace.
-    parsedVal = parseCard(card.slice(1));
-    
-    //Increase the person's Sum and Aces as needed.
-    if (parsedVal === "A") {
-        eval(person + "Aces++");
-    } else { eval(person + "Sum += " + parsedVal); }
-   
-         
-    //Increase the card Count of that person
-    eval(person + "Cards++");
-    
-    //Once the card has been added, the index is increased
+    // Parse the card and assign to to sum or aces
+    function parseCard(slicedCard) {
+
+        if (slicedCard === "A") {
+            person.aces++;
+        } else if (slicedCard === "J" || slicedCard === "Q" || slicedCard === "K") {
+            person.sum += 10;
+        } else { person.sum += parseInt((slicedCard), 10); }
+    }
+
+    // Parse the value of the card to a number or an Ace.
+    parseCard(card.slice(1));
+
+    // Increase the card count of that person
+    person.cards++;
+
+    // Once the card has been added, the index is increased
     index++;
 }
 
+/************************************************************
+                   isBusted function
+*************************************************************/
 
-//This is used to check if a person has been busted
+// Used to check if a person has been busted
 function isBusted(person) {
-    //Calculate min value assuming Aces are 1.
-    var minVal = ((eval(person + "Aces") * 1) + eval(person + "Sum"));
-      
-    //If busted set the person's NotBusted flag and disable the hit and stick buttons. 
+    
+    // Calculate min value assuming Aces are 1.
+    var minVal = (person.aces) + (person.sum);
+    
+    // If busted set the person's NotBusted flag and disable the hit and stick buttons. 
     if (minVal > 21) {
-        eval(person + "NotBusted = false");
-        if (person === "player") {
-            showHidden();
+        person.notbusted = false;
+        if (person.name === "player") {
+            showHiddenCard();
             $(".results").html("Dealer Wins: Player Busts");
-            $(".hit").prop("disabled", true);
-            $(".stick").prop("disabled", true);
+            disableButtons();
         }
     }
 }
 
+
+/************************************************************
+                    dealMe function  
+*************************************************************/
 function dealMe() {
     // Assign top of the deck and increase index
+
+    // Set vars and remove added classes
     resetVars();
     $("[class^=card]").removeClass("suitC suitS suitH suitD");
-   
-   // Deal the starting sets.  $("#dealer").find(".card1").html(deck[index]); 
+
+    // Deal the starting sets.
     $("#dealer").find(".card1").html(deck[index].slice(1)).addClass("hiddenCard suit" + (deck[index])[0]);
-    addCard(deck[index], "dealer");
-    
+    addCard(deck[index], dealer);
+
     $("#dealer").find(".card2").html(deck[index].slice(1)).addClass("suit" + (deck[index])[0]);
-    addCard(deck[index], "dealer");
+    addCard(deck[index], dealer);
 
     $("#player").find(".card1").html(deck[index].slice(1)).addClass("suit" + (deck[index])[0]);
-    addCard(deck[index], "player");
+    addCard(deck[index], player);
 
     $("#player").find(".card2").html(deck[index].slice(1)).addClass("suit" + (deck[index])[0]);
-    addCard(deck[index], "player");
-    
+    addCard(deck[index], player);
+
+
+    // Reset Buttons
     $(".hit").prop("disabled", false);
     $(".stick").prop("disabled", false);
-   
 }
 
+
+/************************************************************
+                    hitMe function  
+*************************************************************/
 function hitMe() {
-    if (playerNotBusted && (playerCards > 1)) {
-        $('#player').find('.card' + (playerCards)).after("<div class='extraCard suit" + (deck[index])[0] + " card" + (playerCards + 1) + "'>" + deck[index].slice(1) + "</div>");
-        addCard(deck[index], "player");
-    }
-    isBusted("player");
+    addCard(deck[index], player);
+    isBusted(player);
 }
 
+/************************************************************
+                    calcMaxScore function  
+*************************************************************/
 
-function calcMaxPlayer(){
-    var theseAces = playerAces;
-    var theseSum = playerSum;
-    if (theseAces === 0){
-        return parseInt(theseSum);
-                    
+function calcMaxScore(person) {
+    this.aces = person.aces;
+    this.sum = person.sum;
+
+    //If there are no aces, the sum is the total
+    if (this.aces === 0){
+        return (this.sum);
+
     }
+    //If there are aces, find max value
     else {
-        var minScore = theseAces + theseSum;
+        //Min values would have aces valued at 1
+        var minScore = this.aces + this.sum;
         var maxDiff = 21 - minScore;
-        if (maxDiff > 9){
-            return (minScore + 10);
-        }
-        
-        else{
-            return minScore;
-            }
+        if (maxDiff > 9){ return (minScore + 10); }
+        else{ return minScore; }
     }
 }
 
-function calcMaxDealer(){
-    var theseAces = dealerAces;
-    var theseSum = dealerSum;
-    if (theseAces === 0){
-        return parseInt(theseSum);
-    }
-    else {
-        var minScore = theseAces + theseSum;
-        var maxDiff = 21 - minScore;
-        if (maxDiff > 9){
-            return (minScore + 10);
-        }
-        else{
-            return minScore;
-            }
-    }
-}
-
-
-//Hit until busted or higher
+/************************************************************
+                    stickMe function  
+*************************************************************/
+// This function will run til busted or higher than player
 function stickMe() {
-    //This function will run til busted or higher than player
-    //The end result should have hit and stick disabled
-    $(".hit").prop("disabled", true);
-    $(".stick").prop("disabled", true);
-    
-    //hitDealer is similiar to fucntion hitMe
+
+    // The end result should have hit and stick disabled
+    disableButtons();
+
+    // hitDealer is similiar to fucntion hitMe
     function hitDealer(){
-        if (dealerNotBusted && (dealerCards > 1)) {
-            $('#dealer').find('.card' + (dealerCards)).after("<div class='extraCard suit" + (deck[index])[0] + " card" + (dealerCards + 1) + "'>" + deck[index].slice(1) + "</div>");
-            addCard(deck[index], "dealer");
-        }
-        isBusted("dealer");
+        addCard(deck[index], dealer);
+        isBusted(dealer);
     }
-    
-    //While dealerNotBusted hit
+
+    // While dealerNotBusted hit
     var dealerHit = true;
-    
-    while (dealerNotBusted && dealerHit){
-        var maxPlayer = calcMaxPlayer();
-        var maxDealer = calcMaxDealer();
-        if (maxDealer === maxPlayer){
+
+    while (dealer.notbusted && dealerHit){
+        var maxPlayer = calcMaxScore(player);
+        var maxDealer = calcMaxScore(dealer);
+        if (maxDealer === maxPlayer) {
             dealerHit = false;
-            showHidden();
+            showHiddenCard();
             $(".results").html("Dealer Wins: Tied Score"); 
         }
-        else if (maxPlayer > maxDealer){
-            hitDealer();
-        }
-        else {
-            dealerHit = false;
-            showHidden();
-            $(".results").html("Dealer Wins: High Score");
-        }
+            else if (maxPlayer > maxDealer) {
+                hitDealer();
+            }
+            else {
+                dealerHit = false;
+                showHiddenCard();
+                $(".results").html("Dealer Wins: High Score");
+            }
     }
-    if (!dealerNotBusted){
-        showHidden();
+    if (!dealer.notbusted) {
+        showHiddenCard();
         $(".results").html("Player Wins: Dealer Busts");
     }
 }
