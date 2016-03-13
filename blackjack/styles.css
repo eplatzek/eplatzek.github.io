@@ -62,28 +62,28 @@ div[class*="card"] {
      background: 
    url("images/club.png"); 
     background-repeat: no-repeat;
-background-position:center;   
+    background-position:center;   
 }
 
 .suitS {
      background: 
    url("images/spade.png"); 
     background-repeat: no-repeat;
-background-position:center;   
+    background-position:center;   
 }
 
 .suitH {
      background: 
    url("images/heart.png"); 
     background-repeat: no-repeat;
-background-position:center;   
+    background-position:center;   
 }
 
 .suitD {
      background: 
    url("images/diamond.png"); 
     background-repeat: no-repeat;
-background-position:center;   
+    background-position:center;   
 }
 
 .card1.hiddenCard {
