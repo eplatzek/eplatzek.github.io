@@ -42,7 +42,7 @@ function createDeck() {
     // Vars for loop control
     var i, j;
 
-    // Concatinate each suit and card to populate the deck
+    // Concatenate each suit and card to populate the deck
     for (i = 0; i < suit.length; i++) {
         for (j = 0; j < cards.length; j++) {
             newdeck.push(suit[i].concat(cards[j]));
@@ -110,7 +110,7 @@ function resetVars() {
     player.cards = 0;
     player.notbusted = true;
 
-    // Rest the results to nothing
+    // Rest the results
     $(".results").html("");
 
     // By default the deal button should be the only option available
@@ -132,7 +132,7 @@ function resetVars() {
 // Used by dealMe and hitMe function to flip the next card
 // and assign it to a person
 function addCard(card, person) {
-    //Add the card to the person's play area if this fuction is being called in hitMe    
+    // Add the card to the person's play area if this fuction is being called in hitMe    
     if (person.cards > 1) {
         $('#' + person.name).find('.card' + (person.cards)).after("<div class='extraCard card" + (person.cards + 1) + "'>X</div>");
             $('#' + person.name).find('.card' + (person.cards +1)).html(deck[index].slice(1)).addClass("suit" + (deck[index])[0]);
@@ -191,7 +191,7 @@ function dealMe() {
     resetVars();
     $("[class^=card]").removeClass("suitC suitS suitH suitD");
 
-    // Deal the starting sets.
+    // Deal the starting sets
     $("#dealer").find(".card1").html(deck[index].slice(1)).addClass("hiddenCard suit" + (deck[index])[0]);
     addCard(deck[index], dealer);
 
@@ -227,12 +227,12 @@ function calcMaxScore(person) {
     this.aces = person.aces;
     this.sum = person.sum;
 
-    //If there are no aces, the sum is the total
+    // If there are no aces, the sum is the total
     if (this.aces === 0){
         return (this.sum);
 
     }
-    //If there are aces, find max value
+    // If there are aces, find max value
     else {
         //Min values would have aces valued at 1
         var minScore = this.aces + this.sum;
