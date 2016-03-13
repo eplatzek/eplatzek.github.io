@@ -6,7 +6,7 @@
 
 #dealer, #player {
     font-family: 'Lato', sans-serif;
-    float:left;
+    float: left;
     width: 40%;
 }
 
@@ -15,8 +15,8 @@
 }
 
 button {
-    background:none;
-    border:none;
+    background: none;
+    border: none;
     cursor: pointer;
     padding: 0px;
     font-family: 'Lato', sans-serif;
@@ -33,7 +33,7 @@ button:hover{
 }   
   
 button:focus{
-    outline:0;
+    outline: 0;
 }   
 
 button:hover:disabled{
@@ -101,15 +101,18 @@ div[class*="card"] {
 
 
 @media screen and (max-width:640px) {
- #dealer, #player {width: 90%;}   
+    #dealer, #player {
+        width: 90%;
+    }   
     
-div[class*="card"] { float:left;}
-    
+    div[class*="card"] {
+        float:left;
+    }
 }
 
 
 @media screen and (min-width:720px){
- #dealer, #player {
-    width: 350px;
-}   
+    #dealer, #player {
+        width: 350px;
+    }   
 }
