@@ -46,8 +46,7 @@ div[class*="card"] {
     float: left;
     padding: 2.4em;
     text-align: center;
-   /* border: 1px solid red;
-    border-radius: 5em; */
+    width: 15px;
     
     font-family: 'Playfair Display', serif;
     color:white;
