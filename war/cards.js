@@ -86,28 +86,39 @@ for(var i = 0; i < players.length; i++) {
 var finished = false;
 
 function dealCard() {
-  let cardThatWon = new Card('X', '1');
-  let competingCards = [];
+  let cardThatWon = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
+  let competingPlayerCards = [];
+  let hadTie = false;
 
   // Get a card from each deck
   players.forEach((player) => {
     if (player.currentDeck.length) {
-      competingCards.push(player.currentDeck[0]);
-      console.log('p', player.currentDeck[0]);
+      let topCard = player.currentDeck.splice(0,1);
+      competingPlayerCards.push({card: topCard[0], player: player.name});
     } else {
       player.hasLost = true;
     }
   });
 
+  console.log('comp', competingPlayerCards);
+
   // Evaluate which card won
-  competingCards.forEach((card) => {
-    if (cardValueConversion(card) >= cardValueConversion(cardThatWon)) {
-      console.log('c vs ctw', card, cardThatWon);
-      cardThatWon = card;
+  competingPlayerCards.forEach((comp) => {
+    if (cardValueConversion(comp.card) > cardValueConversion(cardThatWon.card)) {
+      console.log('c vs ctw', comp, cardThatWon);
+      cardThatWon = comp;
       console.log('ctw', cardThatWon);
     }
   })
 
+  // players.forEach((player) => {
+  //   if (player.currentDeck.length) {
+  //     competingPlayerCards.push(player.currentDeck[0]);
+  //     console.log('p', player.currentDeck[0]);
+  //   } else {
+  //     player.hasLost = true;
+  //   }
+  // });
 }
 
 // Convert string to int values
