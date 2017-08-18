@@ -106,23 +106,18 @@ function dealCard() {
     }
   });
 
-  console.log('comp', competingPlayerCards);
-
-  // Evaluate which card won
+  // Evaluate which card won (bug with equal values - no war yet)
   competingPlayerCards.forEach((comp) => {
     if (cardValueConversion(comp.card) > cardValueConversion(cardThatWon.card)) {
-      console.log('c vs ctw', comp, cardThatWon);
       cardThatWon = comp;
-      console.log('ctw', cardThatWon);
     }
   })
 
   players.forEach((player) => {
     if (player.name === cardThatWon.player) {
-      competingPlayerCards.push(player.currentDeck[0]);
-      console.log('p', player.currentDeck[0]);
-    } else {
-      player.hasLost = true;
+      competingPlayerCards.forEach((comp) => {
+        player.playedCards.splice(0,0, comp.card);
+      });
     }
   });
 }
@@ -140,5 +135,16 @@ function cardValueConversion(card) {
 
 while (!finished) {
   dealCard();
-  finished = true;
+
+  var activePlayers = 0;
+  players.forEach((player) => {
+    if (player.hasLost === false) {
+      activePlayers++;
+    }
+  });
+
+  if (activePlayers === 1) {
+    finished = true;
+    console.log('ENDED: players', players);
+  }
 }
