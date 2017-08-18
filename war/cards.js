@@ -113,12 +113,15 @@ function dealCard() {
     }
   })
 
+  // Add winning cards back
   players.forEach((player) => {
     if (player.name === cardThatWon.player) {
       competingPlayerCards.forEach((comp) => {
-        player.playedCards.splice(0,0, comp.card);
+        player.playedCards.push(comp.card);
       });
     }
+
+    console.log('name:', player.name, 'used - count:', player.playedCards.length, 'unused - count:', player.currentDeck.length)
   });
 }
 
