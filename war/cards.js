@@ -129,7 +129,7 @@ function dealCard() {
 function cardValueConversion(card) {
   if (card.value === 'A') {
     return 11;
-  } else if (card.value === 'K', card.value === 'Q', card.value === 'J') {
+  } else if (card.value === 'K'|| card.value === 'Q' || card.value === 'J') {
     return 10;
   } else {
     return parseInt(card.value, 10);
