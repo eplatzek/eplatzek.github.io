@@ -67,11 +67,7 @@ function shuffleDeck(array) {
     return array;
 }
 
-function dealCard() {
-  players.forEach((player) => {
-    console.log('player', player);
-  });
-}
+
 
 // Suits, cards and empty deck
 var deck = shuffleDeck(createDeck());
@@ -88,6 +84,43 @@ for(var i = 0; i < players.length; i++) {
 
 // Flag to set for a winner
 var finished = false;
+
+function dealCard() {
+  let cardThatWon = new Card('X', '1');
+  let competingCards = [];
+
+  // Get a card from each deck
+  players.forEach((player) => {
+    if (player.currentDeck.length) {
+      competingCards.push(player.currentDeck[0]);
+      console.log('p', player.currentDeck[0]);
+    } else {
+      player.hasLost = true;
+    }
+  });
+
+  // Evaluate which card won
+  competingCards.forEach((card) => {
+    if (cardValueConversion(card) >= cardValueConversion(cardThatWon)) {
+      console.log('c vs ctw', card, cardThatWon);
+      cardThatWon = card;
+      console.log('ctw', cardThatWon);
+    }
+  })
+
+}
+
+// Convert string to int values
+function cardValueConversion(card) {
+  if (card.value === 'A') {
+    return 11;
+  } else if (card.value === 'K', card.value === 'Q', card.value === 'J') {
+    return 10;
+  } else {
+    return parseInt(card.value, 10);
+  }
+}
+
 while (!finished) {
   dealCard();
   finished = true;
