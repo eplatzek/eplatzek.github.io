@@ -91,12 +91,18 @@ function dealCard() {
   let hadTie = false;
 
   // Get a card from each deck
+  // if no cards are available
   players.forEach((player) => {
-    if (player.currentDeck.length) {
-      let topCard = player.currentDeck.splice(0,1);
-      competingPlayerCards.push({card: topCard[0], player: player.name});
-    } else {
-      player.hasLost = true;
+    if (!player.hasLost) {
+      if (player.currentDeck.length) {
+        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+      } else if (player.playedCards.length) {
+        player.currentDeck = shuffleDeck(player.playedCards);
+        player.playedCards = [];
+        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+      } else {
+        player.hasLost = true;
+      }
     }
   });
 
@@ -111,14 +117,14 @@ function dealCard() {
     }
   })
 
-  // players.forEach((player) => {
-  //   if (player.currentDeck.length) {
-  //     competingPlayerCards.push(player.currentDeck[0]);
-  //     console.log('p', player.currentDeck[0]);
-  //   } else {
-  //     player.hasLost = true;
-  //   }
-  // });
+  players.forEach((player) => {
+    if (player.name === cardThatWon.player) {
+      competingPlayerCards.push(player.currentDeck[0]);
+      console.log('p', player.currentDeck[0]);
+    } else {
+      player.hasLost = true;
+    }
+  });
 }
 
 // Convert string to int values
