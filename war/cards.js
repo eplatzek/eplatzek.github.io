@@ -85,9 +85,8 @@ for(var i = 0; i < players.length; i++) {
 // Flag to set for a winner
 var finished = false;
 
-function dealCard() {
+function dealCard(players, competingPlayerCards) {
   let cardThatWon = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
-  let competingPlayerCards = [];
   let hadTie = false;
 
   // Get a card from each deck
@@ -111,6 +110,8 @@ function dealCard() {
     if (cardValueConversion(comp.card) > cardValueConversion(cardThatWon.card)) {
       cardThatWon = comp;
     }
+      // if there is more than one greatest valued card, those with that greatest valued card
+      // are called again (but only those people called.[]) and all the cards previously passed to the pool go on
   })
 
   // Add winning cards back
@@ -137,7 +138,8 @@ function cardValueConversion(card) {
 }
 
 while (!finished) {
-  dealCard();
+  // DealCard takes a parameter of previously won cards and active players
+  dealCard(players, []);
 
   var activePlayers = 0;
   players.forEach((player) => {
