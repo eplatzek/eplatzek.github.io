@@ -85,45 +85,88 @@ for(var i = 0; i < players.length; i++) {
 // Flag to set for a winner
 var finished = false;
 
-function dealCard(players, competingPlayerCards) {
-  let cardThatWon = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
-  let hadTie = false;
+function dealCard(players, previousCompetingPlayerCards) {
+  let heighestCard = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
+  let competingPlayerCards = []
 
-  // Get a card from each deck
-  // if no cards are available
-  players.forEach((player) => {
-    if (!player.hasLost) {
-      if (player.currentDeck.length) {
-        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
-      } else if (player.playedCards.length) {
-        player.currentDeck = shuffleDeck(player.playedCards);
-        player.playedCards = [];
-        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
-      } else {
-        player.hasLost = true;
+  // This will slice off a card from each of the active players deck
+  function anteUp(players) {
+    // Get a card from each deck
+    // if no cards are available
+    players.forEach((player) => {
+      if (!player.hasLost) {
+        if (player.currentDeck.length) {
+          competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+        } else if (player.playedCards.length) {
+          player.currentDeck = shuffleDeck(player.playedCards);
+          player.playedCards = [];
+          competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+        } else {
+          player.hasLost = true;
+        }
       }
-    }
-  });
+    });
+  }
 
-  // Evaluate which card won (bug with equal values - no war yet)
+  // Play the first card
+  anteUp(players);
+
+  // Evaluate which card is heightest
   competingPlayerCards.forEach((comp) => {
-    if (cardValueConversion(comp.card) > cardValueConversion(cardThatWon.card)) {
-      cardThatWon = comp;
+    if (cardValueConversion(comp.card) > cardValueConversion(heighestCard.card)) {
+      heighestCard = comp;
     }
-      // if there is more than one greatest valued card, those with that greatest valued card
-      // are called again (but only those people called.[]) and all the cards previously passed to the pool go on
   })
 
-  // Add winning cards back
-  players.forEach((player) => {
-    if (player.name === cardThatWon.player) {
-      competingPlayerCards.forEach((comp) => {
-        player.playedCards.push(comp.card);
-      });
-    }
+  // Check to see if another player or players had matching high cards
+  let heighestPlayerNames = [];
+  heighestPlayerNames.push(heighestCard.player);
 
-    console.log('name:', player.name, 'used - count:', player.playedCards.length, 'unused - count:', player.currentDeck.length)
+  competingPlayerCards.forEach((comp) => {
+    if (cardValueConversion(comp.card) === cardValueConversion(heighestCard.card) &&
+      (comp.player !== heighestCard.player)) {
+        heighestPlayerNames.push(comp.player);
+    }
   });
+
+  // A tie can be determined by the length of the heighestPlayerNames.
+  if (heighestPlayerNames.length === 1) {
+    // Add winning cards back
+    players.forEach((player) => {
+      if (player.name === heighestCard.player) {
+        competingPlayerCards.forEach((comp) => {
+          player.playedCards.push(comp.card);
+        });
+
+        // Tack on carried over hands
+        previousCompetingPlayerCards.forEach((comp) => {
+          player.playedCards.push(comp.card);
+        });
+      }
+
+      console.log('name:', player.name, 'used - count:', player.playedCards.length, 'unused - count:', player.currentDeck.length)
+    });
+  } else {
+    // A war has begun
+    console.log('WAR:');
+
+    // Recover references to the player objects that match the player names
+    let tiedPlayers = [];
+
+    players.forEach((player) => {
+      heighestPlayerNames.forEach((heighestPlayerName) => {
+        if (player.name === heighestPlayerName) {
+          tiedPlayers.push(player);
+        };
+      });
+    });
+
+    // Burn a card from each tied player
+    anteUp(tiedPlayers);
+
+    // Recursively call for the next round of war
+    dealCard(tiedPlayers, competingPlayerCards.concat(previousCompetingPlayerCards));
+  }
 }
 
 // Convert string to int values
