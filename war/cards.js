@@ -1,47 +1,41 @@
 /************************************************************
-                    Person Initialization
+                    Common Objects
 *************************************************************/
 
-function Person(name) {
+// Player is the players of the game
+function Player(name) {
     // Name is the name of person dealer/player
     this.name = name;
 
     // Cards is the total number of cards played
     this.playedCards = [];
 
-    // Current Deck
+    // Current Deck yet to be drawn
     this.currentDeck = [];
 
-    // Game state
+    // Player state
     this.hasLost = false;
 }
 
-// Card
+// Card of a deck of playing cards
 function Card(suit, value) {
     this.suit = suit;
     this.value = value;
 }
 
-// Two players to start
-var count = 2;
-var players = [];
-for (var i = 0; i < count; i++) {
-  players.push(new Person("player" + i));
-}
-
 
 /************************************************************
-                    Deck Initialization
+                    Deck Utils
 *************************************************************/
 
 function createDeck() {
     // Create the deck of 52 cards stored in array
-    var suit = ["H", "D", "S", "C"];
-    var cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
-    var newdeck = [];
+    let suit = ["H", "D", "S", "C"];
+    let cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+    let newdeck = [];
 
-    // Vars for loop control
-    var i, j;
+    // lets for loop control
+    let i, j;
 
     // Concatenate each suit and card to populate the deck
     for (i = 0; i < suit.length; i++) {
@@ -55,9 +49,10 @@ function createDeck() {
 
 // Randomize array element order in-place.
 // Using Fisher-Yates shuffle algorithm.
+//https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 function shuffleDeck(array) {
 
-    var i, j, temp;
+    let i, j, temp;
     for (i = array.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         temp = array[i];
@@ -67,51 +62,57 @@ function shuffleDeck(array) {
     return array;
 }
 
-function logDivider(comment){
-  console.log('******************************', comment, '******************************');
+// Splits the deck for each player
+function splitDeck(players, deck) {
+  // split the deck
+  for(let i = 0; i < players.length; i++) {
+
+    // 52 is the number of cards in a deck
+    let deckPortion = 52/players.length;
+
+    // Each player should get a chunck of the deck
+    players[i].currentDeck = deck.slice(deckPortion * i, deckPortion * (i + 1));
+  }
 }
 
-// Suits, cards and empty deck
-var deck = shuffleDeck(createDeck());
-
-// split the deck
-for(var i = 0; i < players.length; i++) {
-
-  // 52 is the number of cards in a deck
-  var deckPortion = 52/players.length;
-
-  // Each player should get a chunck of the deck
-  players[i].currentDeck = deck.slice(deckPortion * i, deckPortion * (i + 1));
+// Convert string to int values
+function cardValueConversion(card) {
+  if (card.value === 'A') {
+    return 11;
+  } else if (card.value === 'K'|| card.value === 'Q' || card.value === 'J') {
+    return 10;
+  } else {
+    return parseInt(card.value, 10);
+  }
 }
 
-// Flag to set for a winner
-var finished = false;
+// This will slice off a card from each of the active players deck
+function anteUp(players, competingPlayerCards) {
+  // Get a card from each deck
+  // if no cards are available
+  players.forEach((player) => {
+    if (!player.hasLost) {
+      if (player.currentDeck.length) {
+        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+      } else if (player.playedCards.length) {
+        player.currentDeck = shuffleDeck(player.playedCards);
+        player.playedCards = [];
+        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+      } else {
+        player.hasLost = true;
+      }
+    }
+  });
+}
 
+// Deal a card and evaluate it
 function dealCard(players, previousCompetingPlayerCards) {
   let heighestCard = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
   let competingPlayerCards = []
 
-  // This will slice off a card from each of the active players deck
-  function anteUp(players) {
-    // Get a card from each deck
-    // if no cards are available
-    players.forEach((player) => {
-      if (!player.hasLost) {
-        if (player.currentDeck.length) {
-          competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
-        } else if (player.playedCards.length) {
-          player.currentDeck = shuffleDeck(player.playedCards);
-          player.playedCards = [];
-          competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
-        } else {
-          player.hasLost = true;
-        }
-      }
-    });
-  }
 
   // Play the first card
-  anteUp(players);
+  anteUp(players, competingPlayerCards);
 
   // Evaluate which card is heightest
   competingPlayerCards.forEach((comp) => {
@@ -169,37 +170,57 @@ function dealCard(players, previousCompetingPlayerCards) {
     });
 
     // Burn a card from each tied player
-    anteUp(tiedPlayers);
+    anteUp(tiedPlayers, competingPlayerCards);
 
     // Recursively call for the next round of war
     dealCard(tiedPlayers, competingPlayerCards.concat(previousCompetingPlayerCards));
   }
 }
 
-// Convert string to int values
-function cardValueConversion(card) {
-  if (card.value === 'A') {
-    return 11;
-  } else if (card.value === 'K'|| card.value === 'Q' || card.value === 'J') {
-    return 10;
-  } else {
-    return parseInt(card.value, 10);
-  }
+
+/************************************************************
+                    Console Utils
+*************************************************************/
+function logDivider(comment){
+  console.log('******************************', comment, '******************************');
 }
 
-while (!finished) {
-  // DealCard takes a parameter of previously won cards and active players
-  dealCard(players, []);
+/************************************************************
+                  Init
+*************************************************************/
+function init() {
+  // Two players to start
+  let count = 2;
+  let players = [];
+  for (let i = 0; i < count; i++) {
+    players.push(new Player("player" + i));
+  }
 
-  var activePlayers = 0;
-  players.forEach((player) => {
-    if (player.hasLost === false) {
-      activePlayers++;
+  // Suits, cards and empty deck
+  let deck = shuffleDeck(createDeck());
+
+  // split the deck amongst players
+  splitDeck(players, deck);
+
+  // Flag to set for a winner
+  let finished = false;
+
+  while (!finished) {
+    // DealCard takes a parameter of previously won cards and active players
+    dealCard(players, []);
+
+    let activePlayers = 0;
+    players.forEach((player) => {
+      if (player.hasLost === false) {
+        activePlayers++;
+      }
+    });
+
+    if (activePlayers === 1) {
+      finished = true;
+      console.log('GAME ENDED: players', players);
     }
-  });
-
-  if (activePlayers === 1) {
-    finished = true;
-    console.log('GAME ENDED: players', players);
   }
 }
+
+init();
