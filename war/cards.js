@@ -237,6 +237,7 @@ function init() {
       }
     });
 
+    // If there is only one player left the game is over
     if (activePlayers === 1) {
       finished = true;
       console.log('GAME ENDED: players', players);
