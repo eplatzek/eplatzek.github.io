@@ -1,7 +1,9 @@
 /************************************************************
                     Common Objects
 *************************************************************/
-// Player is the players of the game
+/**
+ * Player is the players of the game
+ */
 function Player(name) {
     // Name is the name of person dealer/player
     this.name = name;
@@ -16,7 +18,9 @@ function Player(name) {
     this.hasLost = false;
 }
 
-// Card of a deck of playing cards
+/**
+ * Card of a deck of playing cards
+ */
 function Card(suit, value) {
     this.suit = suit;
     this.value = value;
@@ -25,6 +29,9 @@ function Card(suit, value) {
 /************************************************************
                     Deck Utils
 *************************************************************/
+/**
+ * Create a deck of cards
+ */
 function createDeck() {
     // Create the deck of 52 cards stored in array
     let suit = ["H", "D", "S", "C"];
@@ -44,9 +51,11 @@ function createDeck() {
     return newdeck;
 }
 
-// Randomize array element order in-place.
-// Using Fisher-Yates shuffle algorithm.
-//https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+/**
+ * Randomize array element order in-place.
+ * Using Fisher-Yates shuffle algorithm.
+ * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+ */
 function shuffleDeck(array) {
 
     let i, j, temp;
@@ -59,7 +68,9 @@ function shuffleDeck(array) {
     return array;
 }
 
-// Splits the deck for each player
+/**
+ * Splits the deck for each player.
+ */
 function splitDeck(players, deck) {
   // split the deck
   for(let i = 0; i < players.length; i++) {
@@ -72,7 +83,9 @@ function splitDeck(players, deck) {
   }
 }
 
-// Convert string to int values
+/**
+ * Convert string to int values
+ */
 function cardValueConversion(card) {
   if (card.value === 'A') {
     return 11;
@@ -83,7 +96,9 @@ function cardValueConversion(card) {
   }
 }
 
-// This will slice off a card from each of the active players deck
+/**
+ * This will slice off a card from each of the active players deck
+ */
 function anteUp(players, competingPlayerCards) {
   // Get a card from each deck
   // if no cards are available
@@ -103,7 +118,9 @@ function anteUp(players, competingPlayerCards) {
   });
 }
 
-// Deal a card and evaluate it
+/**
+ * Deal a card and evaluate it
+ */
 function dealCard(players, previousCompetingPlayerCards) {
   let heighestCard = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
   let competingPlayerCards = []
@@ -178,6 +195,9 @@ function dealCard(players, previousCompetingPlayerCards) {
 /************************************************************
                     Console Utils
 *************************************************************/
+/**
+ * A simple log util
+ */
 function logDivider(comment){
   console.log('******************************', comment, '******************************');
 }
@@ -185,6 +205,9 @@ function logDivider(comment){
 /************************************************************
                   Init
 *************************************************************/
+/**
+ * Initize funcation
+ */
 function init() {
   // Two players to start
   let count = 2;
