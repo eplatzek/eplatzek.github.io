@@ -67,7 +67,9 @@ function shuffleDeck(array) {
     return array;
 }
 
-
+function logDivider(comment){
+  console.log('******************************', comment, '******************************');
+}
 
 // Suits, cards and empty deck
 var deck = shuffleDeck(createDeck());
@@ -131,6 +133,9 @@ function dealCard(players, previousCompetingPlayerCards) {
 
   // A tie can be determined by the length of the heighestPlayerNames.
   if (heighestPlayerNames.length === 1) {
+    // Log of the current state
+    let status = "";
+
     // Add winning cards back
     players.forEach((player) => {
       if (player.name === heighestCard.player) {
@@ -143,13 +148,15 @@ function dealCard(players, previousCompetingPlayerCards) {
           player.playedCards.push(comp.card);
         });
       }
-
-      console.log('name:', player.name, 'used - count:', player.playedCards.length, 'unused - count:', player.currentDeck.length)
+      status += 'name:' + player.name + ' count:' + (player.playedCards.length + player.currentDeck.length) + ' ';
     });
+
+    console.log('RoundEnded:', heighestCard.player);
+    console.log(status);
+
   } else {
     // A war has begun
-    console.log('WAR:');
-
+    logDivider('WAR:');
     // Recover references to the player objects that match the player names
     let tiedPlayers = [];
 
@@ -193,6 +200,6 @@ while (!finished) {
 
   if (activePlayers === 1) {
     finished = true;
-    console.log('ENDED: players', players);
+    console.log('GAME ENDED: players', players);
   }
 }
