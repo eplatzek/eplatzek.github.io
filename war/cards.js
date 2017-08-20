@@ -1,7 +1,6 @@
 /************************************************************
                     Common Objects
 *************************************************************/
-
 // Player is the players of the game
 function Player(name) {
     // Name is the name of person dealer/player
@@ -23,11 +22,9 @@ function Card(suit, value) {
     this.value = value;
 }
 
-
 /************************************************************
                     Deck Utils
 *************************************************************/
-
 function createDeck() {
     // Create the deck of 52 cards stored in array
     let suit = ["H", "D", "S", "C"];
@@ -95,6 +92,7 @@ function anteUp(players, competingPlayerCards) {
       if (player.currentDeck.length) {
         competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
       } else if (player.playedCards.length) {
+        // Shuffled played cards into a new deck and flip the top card
         player.currentDeck = shuffleDeck(player.playedCards);
         player.playedCards = [];
         competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
@@ -137,7 +135,7 @@ function dealCard(players, previousCompetingPlayerCards) {
     // Log of the current state
     let status = "";
 
-    // Add winning cards back
+    // Add winning cards to winning player
     players.forEach((player) => {
       if (player.name === heighestCard.player) {
         competingPlayerCards.forEach((comp) => {
@@ -154,7 +152,6 @@ function dealCard(players, previousCompetingPlayerCards) {
 
     console.log('RoundEnded:', heighestCard.player);
     console.log(status);
-
   } else {
     // A war has begun
     logDivider('WAR:');
@@ -192,6 +189,10 @@ function init() {
   // Two players to start
   let count = 2;
   let players = [];
+
+  // Flag to set for a winner
+  let finished = false;
+
   for (let i = 0; i < count; i++) {
     players.push(new Player("player" + i));
   }
@@ -201,9 +202,6 @@ function init() {
 
   // split the deck amongst players
   splitDeck(players, deck);
-
-  // Flag to set for a winner
-  let finished = false;
 
   while (!finished) {
     // DealCard takes a parameter of previously won cards and active players
