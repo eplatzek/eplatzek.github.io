@@ -1,5 +1,3 @@
-eplatzek.github.io
-==================
 The Game of War.
 - For 2-52 players
 - Each player plays a card from their deck
