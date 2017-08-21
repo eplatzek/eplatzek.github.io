@@ -260,3 +260,10 @@ function init() {
     }
   }
 }
+
+// Export node module for testing.
+if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
+{
+    module.exports = Player;
+    module.exports = Card;
+}
