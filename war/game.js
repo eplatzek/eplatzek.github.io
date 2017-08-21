@@ -264,9 +264,8 @@ function startGame() {
 // Export node module for testing.
 if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
 {
-    module.exports = Player;
-    module.exports = Card;
-    // module.exports = createDeck;
+    module.exports = createDeck;
+    // module.exports = Card;
     // module.exports = shuffleDeck;
     // module.exports = splitDeck;
     // module.exports = cardValueConversion;
