@@ -167,7 +167,7 @@ function dealCard(players, previousCompetingPlayerCards) {
       status += 'name:' + player.name + ' count:' + (player.playedCards.length + player.currentDeck.length) + ' ';
     });
 
-    console.log('RoundEnded:', heighestCard.player);
+    console.log('RoundEnded:', heighestCard.playerName);
     console.log(status);
   } else {
     // A war has begun
@@ -215,6 +215,15 @@ function init() {
   // Two players to start
   let count = 2;
   let players = [];
+
+  // Take the user input and apply it to the player count
+  let userInput = parseInt($('#input').val(), 10);
+  console.log('Input', userInput);
+  if (userInput > 1 && userInput <= 52) {
+    count = userInput;
+  } else {
+    alert('Bad input, defaulting to two users!');
+  }
 
   // Flag to set for a winner
   let finished = false;

@@ -15,7 +15,10 @@
 </head>
 <body>
 <div class="buttonHolder">
-    <button type="button" class="deal" onclick="init()">DEAL</button>
+    <span class="playerTitle"> Players:
+      <input class="playerCount" id="input" type="number" value="2" min="2" max="52"></input>
+    </span>
+    <button type="button" class="deal" onclick="init()">Deal</button>
     <div class="results"></div>
 </body>
 </html>

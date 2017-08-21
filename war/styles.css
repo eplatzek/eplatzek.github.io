@@ -5,6 +5,18 @@
     height: 2em;
 }
 
+.playerTitle {
+  padding: 0px;
+  font-family: 'Lato', sans-serif;
+  margin-left: .4em;
+  font-size: 2em;
+  margin-right: .4em;
+}
+
+.playerCount {
+  font-size: 1em;
+}
+
 button {
     background: none;
     border: none;
