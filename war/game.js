@@ -260,17 +260,3 @@ function startGame() {
     }
   }
 }
-
-// Export node module for testing.
-if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
-{
-    module.exports = createDeck;
-    // module.exports = Card;
-    // module.exports = shuffleDeck;
-    // module.exports = splitDeck;
-    // module.exports = cardValueConversion;
-    // module.exports = anteUp;
-    // module.exports = dealCard;
-    // module.exports = logDivider;
-    // module.exports = startGame;
-}
