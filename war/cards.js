@@ -246,9 +246,8 @@ function init() {
     let lastPlayerWonName = '';
     players.forEach((player) => {
       if (player.hasLost === false) {
-        activePlayers++;
-      } else {
         lastPlayerWonName = player.name;
+        activePlayers++;
       }
     });
 
