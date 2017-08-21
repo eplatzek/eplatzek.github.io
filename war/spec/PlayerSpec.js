@@ -140,7 +140,6 @@ describe("Game", function() {
       players[0].currentDeck.push(cardA);
       players[1].currentDeck.push(cardA);
       previous = [];
-      spyOn(console, 'log');
 
       // WHEN
       dealCard(players, previous)
@@ -148,5 +147,28 @@ describe("Game", function() {
       //THEN4
       expect(players[0].hasLost).toBe(true);
       expect(players[1].hasLost).toBe(true);
+    });
+  });
+
+  it("have a console log until", function()
+  {
+    // GIVEN
+    spyOn(console, 'log');
+
+    // WHEN
+    logDivider('test');
+
+    //THEN
+    expect(console.log).toBeHaveBeenCalled();
+  });
+
+  describe("starting a game", function() {
+    it("with two players the game should end", function() {
+      // WHEN
+      startGame();
+
+      //THEN
+      expect(console.log).toBeHaveBeenCalled();
+      expect((document.getElementById("results").innerHTML).includes('GAME ENDED: ')).toBe(true);
     });
 });
