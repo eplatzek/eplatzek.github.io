@@ -105,12 +105,12 @@ function anteUp(players, competingPlayerCards) {
   players.forEach((player) => {
     if (!player.hasLost) {
       if (player.currentDeck.length) {
-        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], playerName: player.name});
       } else if (player.playedCards.length) {
         // Shuffled played cards into a new deck and flip the top card
         player.currentDeck = shuffleDeck(player.playedCards);
         player.playedCards = [];
-        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], player: player.name});
+        competingPlayerCards.push({card: player.currentDeck.splice(0,1)[0], playerName: player.name});
       } else {
         player.hasLost = true;
       }
@@ -122,7 +122,7 @@ function anteUp(players, competingPlayerCards) {
  * Deal a card and evaluate it
  */
 function dealCard(players, previousCompetingPlayerCards) {
-  let heighestCard = {card: new Card('X', '1'), player: 'x'}; // Place holder value that everything should beat
+  let heighestCard = {card: new Card('X', '1'), playerName: 'x'}; // Place holder value that everything should beat
   let competingPlayerCards = []
 
 
@@ -138,12 +138,12 @@ function dealCard(players, previousCompetingPlayerCards) {
 
   // Check to see if another player or players had matching high cards
   let heighestPlayerNames = [];
-  heighestPlayerNames.push(heighestCard.player);
+  heighestPlayerNames.push(heighestCard.playerName);
 
   competingPlayerCards.forEach((comp) => {
     if (cardValueConversion(comp.card) === cardValueConversion(heighestCard.card) &&
-      (comp.player !== heighestCard.player)) {
-        heighestPlayerNames.push(comp.player);
+      (comp.playerName !== heighestCard.playerName)) {
+        heighestPlayerNames.push(comp.playerName);
     }
   });
 
@@ -154,7 +154,7 @@ function dealCard(players, previousCompetingPlayerCards) {
 
     // Add winning cards to winning player
     players.forEach((player) => {
-      if (player.name === heighestCard.player) {
+      if (player.name === heighestCard.playerName) {
         competingPlayerCards.forEach((comp) => {
           player.playedCards.push(comp.card);
         });
