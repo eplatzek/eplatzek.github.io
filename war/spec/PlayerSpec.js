@@ -69,4 +69,51 @@ describe("Game", function() {
     });
   });
 
+  describe("add another card to the pot", function() {
+    it("when a player has cards", function() {
+      // GIVEN
+      players = new Player('bob');
+      card = new Card('H', 'A');
+      players[0].currentDeck.push(card);
+      competingCards = [];
+
+      // WHEN
+      anteUp(players, competingCards)
+
+      //THEN
+      expect(players[0].currentDeck.length).toBe(0);
+      expect(competingCards.length).toBe(1);
+    });
+
+    it("when a player has only played cards", function() {
+      // GIVEN
+      players = new Player('bob');
+      card = new Card('H', 'A');
+      players[0].playedCards.push(card);
+      competingCards = [];
+
+      // WHEN
+      anteUp(players, competingCards)
+
+      //THEN
+      expect(players[0].currentDeck.length).toBe(0);
+      expect(competingCards.length).toBe(1);
+    });
+
+    it("when a player has no cards they loose", function() {
+      // GIVEN
+      players = new Player('bob');
+      competingCards = [];
+
+      // WHEN
+      anteUp(players, competingCards)
+
+      //THEN
+      expect(players[0].currentDeck.length).toBe(0);
+      expect(players[0].hasLost).toBe(true);
+      expect(competingCards.length).toBe(0);
+    });
+
+
+  });
 });
