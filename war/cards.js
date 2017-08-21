@@ -242,20 +242,21 @@ function init() {
     // DealCard takes a parameter of previously won cards and active players
     dealCard(players, []);
 
-    let activePlayers = 0;
-    let lastPlayerWonName = '';
+    // Active players
+    // If there is one active player, this will be the final player standing
+    let activePlayers = [];
+
     players.forEach((player) => {
       if (player.hasLost === false) {
-        lastPlayerWonName = player.name;
-        activePlayers++;
+        activePlayers.push(player);
       }
     });
 
     // If there is only one player left the game is over
-    if (activePlayers === 1) {
+    if (activePlayers.length === 1) {
       finished = true;
       console.log('GAME ENDED: players', players);
-      $(".results").html('GAME ENDED: ' + lastPlayerWonName);
+      $(".results").html('GAME ENDED: ' + activePlayers[0].name);
     }
   }
 }
