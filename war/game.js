@@ -266,4 +266,12 @@ if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
 {
     module.exports = Player;
     module.exports = Card;
+    module.exports = createDeck;
+    module.exports = shuffleDeck;
+    module.exports = splitDeck;
+    module.exports = cardValueConversion;
+    module.exports = anteUp;
+    module.exports = dealCard;
+    module.exports = logDivider;
+    module.exports = init;
 }
