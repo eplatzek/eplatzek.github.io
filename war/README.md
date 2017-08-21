@@ -1,4 +1,5 @@
 The Game of War.
+==============================
 - For 2-52 players
 - Each player plays a card from their deck
 - Top card wins all other cards
