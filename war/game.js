@@ -198,7 +198,7 @@ function dealCard(players, previousCompetingPlayerCards) {
 /**
  * A simple log util
  */
-function logDivider(comment){
+function logDivider(comment) {
   console.log('******************************', comment, '******************************');
 }
 
@@ -208,9 +208,9 @@ function logDivider(comment){
 /**
  * Initize funcation
  */
-function init() {
+function startGame() {
   // Rest the results
-  $(".results").html("");
+  document.getElementById("results").innerHTML = "";
 
   // Two players to start
   let count = 2;
@@ -256,7 +256,7 @@ function init() {
     if (activePlayers.length === 1) {
       finished = true;
       console.log('GAME ENDED: players', players);
-      $(".results").html('GAME ENDED: ' + activePlayers[0].name);
+      document.getElementById("results").innerHTML = ('GAME ENDED: ' + activePlayers[0].name);
     }
   }
 }
@@ -266,12 +266,12 @@ if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
 {
     module.exports = Player;
     module.exports = Card;
-    module.exports = createDeck;
-    module.exports = shuffleDeck;
-    module.exports = splitDeck;
-    module.exports = cardValueConversion;
-    module.exports = anteUp;
-    module.exports = dealCard;
-    module.exports = logDivider;
-    module.exports = init;
+    // module.exports = createDeck;
+    // module.exports = shuffleDeck;
+    // module.exports = splitDeck;
+    // module.exports = cardValueConversion;
+    // module.exports = anteUp;
+    // module.exports = dealCard;
+    // module.exports = logDivider;
+    // module.exports = startGame;
 }
