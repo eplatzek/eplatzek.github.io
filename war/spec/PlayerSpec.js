@@ -72,7 +72,7 @@ describe("Game", function() {
   describe("add another card to the pot", function() {
     it("when a player has cards", function() {
       // GIVEN
-      players = new Player('bob');
+      players = [new Player('bob')];
       card = new Card('H', 'A');
       players[0].currentDeck.push(card);
       competingCards = [];
@@ -87,7 +87,7 @@ describe("Game", function() {
 
     it("when a player has only played cards", function() {
       // GIVEN
-      players = new Player('bob');
+      players = [new Player('bob')];
       card = new Card('H', 'A');
       players[0].playedCards.push(card);
       competingCards = [];
@@ -102,7 +102,7 @@ describe("Game", function() {
 
     it("when a player has no cards they loose", function() {
       // GIVEN
-      players = new Player('bob');
+      players = [new Player('bob')];
       competingCards = [];
 
       // WHEN
@@ -113,7 +113,40 @@ describe("Game", function() {
       expect(players[0].hasLost).toBe(true);
       expect(competingCards.length).toBe(0);
     });
-
-
   });
+
+  describe("when dealing cards", function() {
+    it("and there is a high card played", function() {
+      // GIVEN
+      players = [new Player('1'), new Player('2')];
+      cardA = new Card('H', 'A');
+      card9 = new Card('H', '9');
+      players[0].currentDeck.push(cardA);
+      players[1].currentDeck.push(card9);
+      previous = [];
+      spyOn(console, 'log');
+
+      // WHEN
+      dealCard(players, previous)
+
+      //THEN4
+      expect(console.log).toBeHaveBeenCalled();
+      expect(players[0].playedCards.length).toBe(2);
+    });
+    it("and there is a war and no more cards both loose", function() {
+      // GIVEN
+      players = [new Player('1'), new Player('2')];
+      cardA = new Card('H', 'A');
+      players[0].currentDeck.push(cardA);
+      players[1].currentDeck.push(cardA);
+      previous = [];
+      spyOn(console, 'log');
+
+      // WHEN
+      dealCard(players, previous)
+
+      //THEN4
+      expect(players[0].hasLost).toBe(true);
+      expect(players[1].hasLost).toBe(true);
+    });
 });
