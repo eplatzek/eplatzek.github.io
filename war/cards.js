@@ -209,6 +209,9 @@ function logDivider(comment){
  * Initize funcation
  */
 function init() {
+  // Rest the results
+  $(".results").html("");
+
   // Two players to start
   let count = 2;
   let players = [];
@@ -231,9 +234,12 @@ function init() {
     dealCard(players, []);
 
     let activePlayers = 0;
+    let lastPlayerWonName = '';
     players.forEach((player) => {
       if (player.hasLost === false) {
         activePlayers++;
+      } else {
+        lastPlayerWonName = player.name;
       }
     });
 
@@ -241,8 +247,7 @@ function init() {
     if (activePlayers === 1) {
       finished = true;
       console.log('GAME ENDED: players', players);
+      $(".results").html('GAME ENDED: ' + lastPlayerWonName);
     }
   }
 }
-
-init();
